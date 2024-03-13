@@ -1,0 +1,7 @@
+/dist
+/node_modules
+dist
+node
+target
+__tests__
+/src/main/webpack/resources/

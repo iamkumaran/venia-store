@@ -1,6 +1,6 @@
 import { gql } from 'urql';
 
-export const FILTERS_QUERY = gql`
+const FILTERS_QUERY = gql`
   query getProductFiltersByCategory($categoryIdFilter: FilterEqualTypeInput!) {
     products(filter: { category_uid: $categoryIdFilter }) {
       aggregations {
@@ -19,3 +19,5 @@ export const FILTERS_QUERY = gql`
     }
   }
 `;
+
+export { FILTERS_QUERY };

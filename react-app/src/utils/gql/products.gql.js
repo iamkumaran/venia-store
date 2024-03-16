@@ -1,6 +1,6 @@
 import { gql } from 'urql';
 
-export const PRODUCTS_QUERY = gql`
+const PRODUCTS_QUERY = gql`
   query GetCategories(
     $id: String!
     $pageSize: Int!
@@ -71,3 +71,5 @@ export const PRODUCTS_QUERY = gql`
     __typename
   }
 `;
+
+export { PRODUCTS_QUERY };

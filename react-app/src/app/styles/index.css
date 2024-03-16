@@ -6660,14 +6660,14 @@ a.banner-link-1UQ {
   left: 1.6rem;
 }
 .slider-root-2kb .slick-prev:before {
-  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns=%27http://www.w3.org/2000/svg%27 width=%2732px%27 height=%2732px%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 strokeWidth=%272%27 strokeLinecap=%27round%27 strokeLinejoin=%27round%27><line x1=%2719%27 y1=%2712%27 x2=%275%27 y2=%2712%27 /><polyline points=%2712 19 5 12 12 5%27 /></svg>");
+  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' width='32px' height='32px' viewBox='0 0 24 24' fill='none' stroke='black' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><line x1='19' y1='12' x2='5' y2='12' /><polyline points='12 19 5 12 12 5' /></svg>");
 }
 
 .slider-root-2kb .slick-next {
   right: 1.6rem;
 }
 .slider-root-2kb .slick-next:before {
-  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns=%27http://www.w3.org/2000/svg%27 width=%2732px%27 height=%2732px%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 strokeWidth=%272%27 strokeLinecap=%27round%27 strokeLinejoin=%27round%27><line x1=%275%27 y1=%2712%27 x2=%2719%27 y2=%2712%27 /><polyline points=%2712 5 19 12 12 19%27 /></svg>");
+  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' width='32px' height='32px' viewBox='0 0 24 24' fill='none' stroke='black' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'><line x1='5' y1='12' x2='19' y2='12' /><polyline points='12 5 19 12 12 19' /></svg>");
 }
 
 .slider-root-2kb .slick-prev,
@@ -6914,4 +6914,3 @@ a.banner-link-1UQ {
   /* composes: border-subtle from global; */
   border-bottom: 2px solid rgb(var(--venia-global-color-border));
 }
-

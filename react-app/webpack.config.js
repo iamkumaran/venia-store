@@ -17,7 +17,7 @@ class CopyFiles {
         {
           all: true,
           up: 1,
-          exclude: ['./dist/vendor/**/*', './dist/index.html'],
+          exclude: ['./dist/vendor/**/*', './dist/index.html', './dist/styles/**/*'],
           verbose: true,
         },
         err => err && console.error(err)
@@ -25,6 +25,13 @@ class CopyFiles {
       // copy vendor file
       copyfiles(
         ['./dist/vendor/vendor.js', '../scripts'],
+        {
+          up: 2,
+        },
+        err => err && console.error(err)
+      );
+      copyfiles(
+        ['./dist/styles/styles.css', '../styles'],
         {
           up: 2,
         },
@@ -39,6 +46,8 @@ module.exports = {
   mode: 'development',
   // entry: './src/app/product-list/index.jsx',
   entry: {
+    styles: './src/app/styles/index.js',
+    'header-nav': './src/app/header-nav/index.jsx',
     'product-list': './src/app/product-list/index.jsx',
     'product-detail': './src/app/product-detail/index.jsx',
   },
@@ -87,12 +96,12 @@ module.exports = {
     chunkIds: 'named',
     splitChunks: {
       cacheGroups: {
-        commons: {
-          chunks: 'initial',
-          minChunks: 2,
-          maxInitialRequests: 5, // The default limit is too small to showcase the effect
-          minSize: 0, // This is example is too small to create commons chunks
-        },
+        // commons: {
+        //   chunks: 'initial',
+        //   minChunks: 2,
+        //   maxInitialRequests: 5, // The default limit is too small to showcase the effect
+        //   minSize: 0, // This is example is too small to create commons chunks
+        // },
         vendor: {
           test: /node_modules/,
           chunks: 'initial',

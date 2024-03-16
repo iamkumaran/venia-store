@@ -6,11 +6,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const copyfiles = require('copyfiles');
 const path = require('path');
 
-
 // Plugin to copy  dist files to EDS location
 class CopyFiles {
   apply(compiler) {
-    compiler.hooks.done.tap('Copy', compilation => {
+    compiler.hooks.done.tap('Copy', () => {
       // console.log('compilation ===>');
       // copy component files
       copyfiles(
@@ -21,7 +20,7 @@ class CopyFiles {
           exclude: ['./dist/vendor/**/*', './dist/index.html'],
           verbose: true,
         },
-        (err) => err && console.error(err)
+        err => err && console.error(err)
       );
       // copy vendor file
       copyfiles(
@@ -29,7 +28,7 @@ class CopyFiles {
         {
           up: 2,
         },
-        (err) => err && console.error(err)
+        err => err && console.error(err)
       );
     });
   }
@@ -70,6 +69,9 @@ module.exports = {
     }),
     new CopyFiles(),
   ],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   optimization: {
     minimize: true,
     minimizer: [
@@ -104,8 +106,9 @@ module.exports = {
   devServer: {
     host: 'localhost', // where to run
     historyApiFallback: true,
-    port: 4200, //given port to exec. app
+    port: 4200, // given port to exec. app
     open: true, // open new tab
-    hot: true, // Enable webpack's Hot Module Replacement
+    // hot: true, // Enable webpack's Hot Module Replacement
+    watchFiles: ['src/**/*'],
   },
 };

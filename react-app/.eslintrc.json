@@ -22,21 +22,14 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "webpack.common.js"
+        "config": "webpack.config.js"
       }
     }
   },
   "rules": {
-    "yoda": 0,
     "no-plusplus": "off",
     "curly": 1,
     "consistent-return": 0,
-    "@typescript-eslint/explicit-function-return-type": [
-      0
-    ],
-    "@typescript-eslint/no-explicit-any": [
-      0
-    ],
     "func-names": 0,
     "ordered-imports": [
       0
@@ -55,6 +48,7 @@
     "eol-last": 1,
     "semi": 1,
     "no-var": 0,
+    "react/prop-types": 1,
     "react/function-component-definition": [
       2,
       {
@@ -79,14 +73,5 @@
       }
     ]
   },
-  "globals": {
-    "google": true,
-    "amazon": true,
-    "amzOptions": true,
-    "gapi": true,
-    "ggOptions": true,
-    "AppleID": true,
-    "FB": true,
-    "fbOptions": true
-  }
+  "globals": {}
 }

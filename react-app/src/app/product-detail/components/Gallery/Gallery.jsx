@@ -7,7 +7,7 @@ const Gallery = ({ item }) => {
   useEffect(() => {
     setTimeout(() => {
       setRenderImage(true);
-    }, 3000);
+    }, 1);
   }, []);
   return (
     <section className="productFullDetail-imageCarousel-3B4 max-w-[640px] mx-auto my-0 lg_m-0 lg_px-0 lg_py-sm">
@@ -35,7 +35,7 @@ const Gallery = ({ item }) => {
           </button>
           <div className="carousel-imageContainer-3Yh image-container-2U5 relative">
             <img
-              loading="eager"
+              fetchPriority="high"
               aria-hidden="true"
               alt={item[index].label}
               className="carousel-currentImage-1yX block h-full object-center object-contain w-full lg_object-top image-placeholder_layoutOnly-1jH image-placeholder-1mM bg-transparent left-0 relative top-0 bg-transparent"
@@ -108,7 +108,8 @@ const Gallery = ({ item }) => {
                   style={{ '--height': 170, '--width': 135 }}
                 />
                 <img
-                  loading="lazy"
+                  loading={key === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={key === 0 ? 'high' : 'low'}
                   alt={img.label}
                   className="thumbnail-image-cwU hidden lg_bg-subtle lg_block lg_h-full lg_object-center lg_object-contain lg_rounded-sm lg_w-full image-loaded-3O9 absolute left-0 top-0"
                   sizes="135px"

@@ -16,9 +16,14 @@ header .nav-brand {
 
 }
 
+.header-secondaryActions-2BM{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px;
+}
 
-
-
-
-
+.cartTrigger-trigger-1c5 {
+  min-width: 3.5rem;
+}
 

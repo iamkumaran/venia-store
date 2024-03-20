@@ -35,10 +35,10 @@ const Gallery = ({ item }) => {
               className="carousel-currentImage-1yX block h-full object-center object-contain w-full lg_object-top image-placeholder_layoutOnly-1jH image-placeholder-1mM bg-transparent left-0 relative top-0 bg-transparent"
               src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzUnPjxyZWN0IHdpZHRoPSc0JyBoZWlnaHQ9JzUnIHN0eWxlPSdmaWxsOiBub25lJyAvPjwvc3ZnPg=="
               width={640}
-              style={{ '--width': 640 }}
+              style={{ '--height': 800, '--width': 640 }}
             />
             <img
-              loading="eager"
+              loading="lazy"
               // fetchPriority="high"
               alt={item[index].label}
               className="carousel-currentImage-1yX block h-full object-center object-contain w-full lg_object-top image-loaded-3O9 absolute left-0 top-0"

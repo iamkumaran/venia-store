@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { IMG_PATH, IMG_QS, IMG_SOURCE } from '../../../../utils/config/constants';
 
-const Gallery = ({ item }) => {
+const Gallery = ({ item, preload = false }) => {
   const [index, setIndex] = useState(0);
-  const [renderImage, setRenderImage] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setRenderImage(true);
-    }, 1);
-  }, []);
+  // const [renderImage, setRenderImage] = useState(false);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setRenderImage(true);
+  //   }, 1);
+  // }, []);
   return (
     <section className="productFullDetail-imageCarousel-3B4 max-w-[640px] mx-auto my-0 lg_m-0 lg_px-0 lg_py-sm">
       <div className="carousel-root-3Sd lg_gap-sm grid grid-cols-auto grid-rows-auto">
@@ -43,15 +43,22 @@ const Gallery = ({ item }) => {
               width={640}
               style={{ '--height': 800, '--width': 640 }}
             />
-            {renderImage && (
-              <img
-                loading="lazy"
-                // fetchPriority="high"
-                alt={item[index].label}
-                className="carousel-currentImage-1yX block h-full object-center object-contain w-full lg_object-top image-loaded-3O9 absolute left-0 top-0"
-                sizes="640px"
-                src={`${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=640&height=800`}
-                srcSet={`
+            {/* {renderImage && ( */}
+            <img
+              loading="lazy"
+              // fetchPriority="high"
+              alt={item[index].label}
+              className="carousel-currentImage-1yX block h-full object-center object-contain w-full lg_object-top image-loaded-3O9 absolute left-0 top-0"
+              sizes="640px"
+              src={
+                preload
+                  ? item[index].file
+                  : `${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=640&height=800`
+              }
+              srcSet={
+                preload
+                  ? item[index].file
+                  : `
                 ${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=40&height=50       40w,
                 ${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=80&height=100      80w,
                 ${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=160&height=200    160w,
@@ -61,11 +68,12 @@ const Gallery = ({ item }) => {
                 ${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=1280&height=1600 1280w,
                 ${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=1600&height=2000 1600w,
                 ${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=2560&height=3200 2560w
-              `}
-                width={640}
-                style={{ '--height': 800, '--width': 640 }}
-              />
-            )}
+              `
+              }
+              width={640}
+              style={{ '--height': 800, '--width': 640 }}
+            />
+            {/* )} */}
           </div>
           <button
             type="button"
@@ -113,8 +121,11 @@ const Gallery = ({ item }) => {
                   alt={img.label}
                   className="thumbnail-image-cwU hidden lg_bg-subtle lg_block lg_h-full lg_object-center lg_object-contain lg_rounded-sm lg_w-full image-loaded-3O9 absolute left-0 top-0"
                   sizes="135px"
-                  src={`${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=135&height=170`}
-                  srcSet={`
+                  src={preload ? img.file : `${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=135&height=170`}
+                  srcSet={
+                    preload
+                      ? img.file
+                      : `
                   ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=40&height=50       40w,
                   ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=80&height=100      80w,
                   ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=160&height=200    160w,
@@ -124,7 +135,8 @@ const Gallery = ({ item }) => {
                   ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=1280&height=1600  1280w,
                   ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=1600&height=2000 1600w,
                   ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=2560&height=3200 2560w
-                  `}
+                  `
+                  }
                   width={135}
                   style={{ '--height': 170, '--width': 135 }}
                 />

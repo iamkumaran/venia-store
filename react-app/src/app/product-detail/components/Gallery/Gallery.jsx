@@ -7,7 +7,7 @@ const Gallery = ({ item }) => {
   useEffect(() => {
     setTimeout(() => {
       setRenderImage(true);
-    }, 500);
+    }, 1000);
   }, []);
   return (
     <section className="productFullDetail-imageCarousel-3B4 max-w-[640px] mx-auto my-0 lg_m-0 lg_px-0 lg_py-sm">

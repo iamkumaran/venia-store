@@ -111,7 +111,7 @@ const Gallery = ({ item }) => {
                   ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=320&height=400    320w,
                   ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=640&height=800    640w,
                   ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=960&height=1200   960w,
-                  ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=1280&height=1600 1280w,
+                  ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=1280&height=1600  1280w,
                   ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=1600&height=2000 1600w,
                   ${IMG_SOURCE}${IMG_PATH}${img.file}?${IMG_QS}&width=2560&height=3200 2560w
                   `}

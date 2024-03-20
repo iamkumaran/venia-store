@@ -126,7 +126,22 @@ function loadDelayed() {
   // load anything that can be postponed to the latest here
 }
 
+function addPreloadImage() {
+  const data = document.head.querySelector('meta[name=preload]')?.content;
+  if (data) {
+    const elem = document.createElement('link');
+    elem.setAttribute('rel', 'preload');
+    elem.setAttribute('fetchpriority', 'high');
+    elem.setAttribute('as', 'image');
+    elem.setAttribute('href', data);
+    elem.setAttribute('type', 'image/webp');
+  }
+  // <link rel="preload" fetchpriority="high" as="image" href="/path/to/hero-image.webp" type="image/webp">
+  document.head.append(elem);
+}
+
 async function loadPage() {
+  addPreloadImage();
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();

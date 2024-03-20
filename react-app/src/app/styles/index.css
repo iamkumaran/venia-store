@@ -6914,3 +6914,15 @@ a.banner-link-1UQ {
   /* composes: border-subtle from global; */
   border-bottom: 2px solid rgb(var(--venia-global-color-border));
 }
+
+/* custom styles */
+.header-nav {
+  height: 80px;
+}
+
+.product-detail, .product-list {
+  min-height: 100vh;
+}
+footer {
+  min-height: 118px;
+}

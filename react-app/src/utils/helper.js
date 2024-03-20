@@ -64,3 +64,10 @@ export const getCartIdFromStorage = () => {
   }
   return null;
 };
+
+export const updateDomCartCount = count => {
+  const cartElem = document.querySelector('#mini-cart-section .cartTrigger-counter-2ju');
+  if (cartElem && count) {
+    cartElem.textContent = count;
+  }
+};

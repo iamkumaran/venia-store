@@ -2,7 +2,9 @@ import React from 'react';
 
 const MiniCart = () => {
   return (
-    <div className="header-secondaryActions-2BM col-start-3 grid grid-flow-col items-center justify-items-end justify-self-end w-max lg_col-end-13 lg_col-start-10 lg_gap-x-4">
+    <div
+      id="mini-cart-section"
+      className="header-secondaryActions-2BM col-start-3 grid grid-flow-col items-center justify-items-end justify-self-end w-max lg_col-end-13 lg_col-start-10 lg_gap-x-4">
       <div className="cartTrigger-triggerContainer-2Jd hidden items-center h-lg lg_grid">
         <button
           type="button"
@@ -26,9 +28,7 @@ const MiniCart = () => {
               <path d="M16 10a4 4 0 0 1-8 0" />
             </svg>
           </span>
-          <span className="cartTrigger-counter-2ju absolute bg-brand-dark font-semibold leading-tight left-sm min-w-[1.25rem] px-1 py-0 rounded-full text-sm text-white top-1.5">
-            15
-          </span>
+          <span className="cartTrigger-counter-2ju absolute bg-brand-dark font-semibold leading-tight left-sm min-w-[1.25rem] px-1 py-0 rounded-full text-sm text-white top-1.5" />
         </button>
       </div>
       {/* <button

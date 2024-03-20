@@ -1,6 +1,6 @@
 import React from 'react';
 import HeartIcon from '../../../../library/icons/HeartIcon';
-import { getCartIdFromStorage } from '../../../../utils/helper';
+import { getCartIdFromStorage, updateDomCartCount } from '../../../../utils/helper';
 
 const AddToCartSection = ({ sizeUid, colorUid, sku, quantity = 1, triggerCall }) => {
   const isActive = !!(sizeUid && colorUid);
@@ -16,7 +16,12 @@ const AddToCartSection = ({ sizeUid, colorUid, sku, quantity = 1, triggerCall })
       },
     };
     triggerCall(variables).then(resp => {
+      if (resp.error) {
+        return false;
+      }
       console.log('Add to cart call resp', resp);
+      updateDomCartCount(resp?.data?.addProductsToCart?.cart?.total_quantity);
+      return true;
     });
   };
 

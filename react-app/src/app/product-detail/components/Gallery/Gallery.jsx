@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IMG_PATH, IMG_QS, IMG_SOURCE } from '../../../../utils/config/constants';
 
 const Gallery = ({ item }) => {
   const [index, setIndex] = useState(0);
+  const [renderImage, setRenderImage] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setRenderImage(true);
+    }, 500);
+  }, []);
   return (
     <section className="productFullDetail-imageCarousel-3B4 max-w-[640px] mx-auto my-0 lg_m-0 lg_px-0 lg_py-sm">
       <div className="carousel-root-3Sd lg_gap-sm grid grid-cols-auto grid-rows-auto">
@@ -37,14 +43,15 @@ const Gallery = ({ item }) => {
               width={640}
               style={{ '--height': 800, '--width': 640 }}
             />
-            <img
-              loading="lazy"
-              // fetchPriority="high"
-              alt={item[index].label}
-              className="carousel-currentImage-1yX block h-full object-center object-contain w-full lg_object-top image-loaded-3O9 absolute left-0 top-0"
-              sizes="640px"
-              src={`${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=640&height=800`}
-              srcSet={`
+            {renderImage && (
+              <img
+                loading="lazy"
+                // fetchPriority="high"
+                alt={item[index].label}
+                className="carousel-currentImage-1yX block h-full object-center object-contain w-full lg_object-top image-loaded-3O9 absolute left-0 top-0"
+                sizes="640px"
+                src={`${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=640&height=800`}
+                srcSet={`
                 ${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=40&height=50       40w,
                 ${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=80&height=100      80w,
                 ${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=160&height=200    160w,
@@ -55,9 +62,10 @@ const Gallery = ({ item }) => {
                 ${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=1600&height=2000 1600w,
                 ${IMG_SOURCE}${IMG_PATH}${item[index].file}?${IMG_QS}&width=2560&height=3200 2560w
               `}
-              width={640}
-              style={{ '--height': 800, '--width': 640 }}
-            />
+                width={640}
+                style={{ '--height': 800, '--width': 640 }}
+              />
+            )}
           </div>
           <button
             type="button"

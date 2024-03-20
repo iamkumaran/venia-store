@@ -135,9 +135,9 @@ function addPreloadImage() {
     elem.setAttribute('as', 'image');
     elem.setAttribute('href', data);
     elem.setAttribute('type', 'image/webp');
+    document.head.append(elem);
   }
   // <link rel="preload" fetchpriority="high" as="image" href="/path/to/hero-image.webp" type="image/webp">
-  document.head.append(elem);
 }
 
 async function loadPage() {

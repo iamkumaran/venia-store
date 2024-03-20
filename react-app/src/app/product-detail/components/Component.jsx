@@ -61,32 +61,42 @@ const Component = () => {
     }
   }, [selectedColor, selectedSize]);
 
-  if (fetching) return <p>Loading...</p>;
-  if (error) return <p>Oh no... {error.message}</p>;
-  if (!productData) return null;
+  // if (fetching) return <p>Loading...</p>;
+  // if (error) return <p>Oh no... {error.message}</p>;
+  // if (!productData) return null;
 
-  const initialProduct = data.products.items[0];
+  const initialProduct = data?.products?.items?.[0];
 
   return (
     <form className="productFullDetail-root-1E7 px-0 py-xs lg_grid lg_grid-flow-row lg_items-start lg_px-xs lg_py-md">
-      <Gallery item={productData.media_gallery_entries} />
-      <Title name={productData.name} priceObj={productData.price_range.maximum_price.final_price} />
-      <SwatchSection
-        data={initialProduct.configurable_options}
-        setColor={setSelectedColor}
-        setSize={setSelectedSize}
-        handler={handleSizeChange}
-      />
-      <Quantity setQty={setSelectedQty} />
-      <AddToCartSection
-        sizeUid={selectedSize?.uid}
-        colorUid={selectedColor?.uid}
-        sku={initialProduct.sku}
-        quantity={selectedQty}
-        triggerCall={cartCallHandler}
-      />
-      <Description content={initialProduct.description.html} />
-      <Spec specs={productData.custom_attributes} sku={initialProduct.sku} />
+      {fetching && (
+        <Gallery
+          item={[{ uid: 123456, label: 'Loading', file: document.head.querySelector('meta[name=preload]')?.content }]}
+          preload
+        />
+      )}
+      {!fetching && productData && (
+        <>
+          <Gallery item={productData.media_gallery_entries} />
+          <Title name={productData.name} priceObj={productData.price_range.maximum_price.final_price} />
+          <SwatchSection
+            data={initialProduct.configurable_options}
+            setColor={setSelectedColor}
+            setSize={setSelectedSize}
+            handler={handleSizeChange}
+          />
+          <Quantity setQty={setSelectedQty} />
+          <AddToCartSection
+            sizeUid={selectedSize?.uid}
+            colorUid={selectedColor?.uid}
+            sku={initialProduct.sku}
+            quantity={selectedQty}
+            triggerCall={cartCallHandler}
+          />
+          <Description content={initialProduct.description.html} />
+          <Spec specs={productData.custom_attributes} sku={initialProduct.sku} />
+        </>
+      )}
     </form>
   );
 };

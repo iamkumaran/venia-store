@@ -3,5 +3,8 @@ import { createRoot } from 'react-dom/client';
 import App from './components/App';
 import './index.css';
 
-const root = createRoot(document.querySelector('.product-list'));
-root.render(<App />);
+const elem = document.querySelector('.product-list');
+if (elem) {
+  const root = createRoot(elem);
+  root.render(<App />);
+}

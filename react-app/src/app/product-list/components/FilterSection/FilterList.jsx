@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { useQuery } from 'urql';
 import FilterListSub from './FilterListSub';
-import { FILTERS_QUERY } from '../../../../utils/gql/filters.gql';
+import FILTERS_QUERY from '../../../../utils/gql/filters.gql';
 
 const FilterList = () => {
   const [result] = useQuery({

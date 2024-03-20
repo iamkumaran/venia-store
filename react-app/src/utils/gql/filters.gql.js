@@ -20,4 +20,4 @@ const FILTERS_QUERY = gql`
   }
 `;
 
-export { FILTERS_QUERY };
+export default FILTERS_QUERY;

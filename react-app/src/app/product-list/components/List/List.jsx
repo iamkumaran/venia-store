@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useQuery } from 'urql';
-import { PRODUCTS_QUERY } from '../../../../utils/gql/products.gql';
+import PRODUCTS_QUERY from '../../../../utils/gql/products.gql';
 import { getSelectedFilterPayload } from '../../../../utils/helper';
 import { setProductCount } from '../../../../library/context/store/actions';
 import { useStoreContext } from '../../../../library/context/store/StoreContext';

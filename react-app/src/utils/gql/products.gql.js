@@ -72,4 +72,4 @@ const PRODUCTS_QUERY = gql`
   }
 `;
 
-export { PRODUCTS_QUERY };
+export default PRODUCTS_QUERY;

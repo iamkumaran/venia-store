@@ -1,3 +1,5 @@
+import { CART_TOKEN_KEY } from './config/constants';
+
 /**
  * genarate unique ids to avaoid duplicate ids in one page
  * @param {String} prefix
@@ -27,4 +29,38 @@ export const getSelectedFilterPayload = filtersList => {
     obj.price = { from: Math.min(...obj.price.in).toString(), to: Math.max(...obj.price.in).toString() };
   }
   return obj;
+};
+
+export const getVariantProduct = (variants = [], color = null, size = null) => {
+  return variants.find(variant => {
+    // when both option color and size are selected.
+    if (color && size) {
+      const [v1, v2] = variant.attributes;
+      return (
+        (v1.value_index === color.value_index && v2.value_index === size.value_index) ||
+        (v1.value_index === size.value_index && v2.value_index === color.value_index)
+      );
+    }
+    // when color is only selected.
+    if (color) {
+      return variant.attributes.find(attr => attr.value_index === color.value_index);
+    }
+    // when size is only selected
+    if (size) {
+      return variant.attributes.find(attr => attr.value_index === size.value_index);
+    }
+    //  when nothing is selected
+    return null;
+  });
+};
+
+export const getCartIdFromStorage = () => {
+  const cartLocalData = localStorage.getItem(CART_TOKEN_KEY);
+  if (cartLocalData) {
+    const cartToken = JSON.parse(cartLocalData);
+    if (cartToken.cartId) {
+      return cartToken.cartId;
+    }
+  }
+  return null;
 };

@@ -5,6 +5,8 @@ import reducer from './reducers';
 const initialState = {
   isLoggedIn: false,
   localeCode: 'en-us',
+
+  // PLP
   selectedFilter: [],
   productsCount: 0,
 };

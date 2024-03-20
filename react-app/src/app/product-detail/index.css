@@ -1,3 +1,309 @@
-.bar {
-  color: red;
+
+
+.carousel-root-3Sd {
+  grid-template-areas:
+    'main'
+    'thumbs';
+}
+
+@media (min-width: 960px) {
+  .carousel-root-3Sd {
+    grid-template-areas: 'thumbs main';
+    /* These values are mirrored in JS for image sizes. Keep them in sync. */
+    grid-template-columns: 17fr 80fr;
+  }
+}
+
+.carousel-carouselContainer-e3n {
+  grid-area: main;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.carousel-imageContainer-3Yh {
+  grid-area: 1 / 1 / 2 / 4;
+}
+
+.carousel-currentImage-1yX {
+}
+
+.carousel-currentImage_placeholder-GbO {
+}
+
+.carousel-previousButton-1vE,
+.carousel-nextButton-3lU {
+}
+
+.carousel-previousButton-1vE {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.carousel-nextButton-3lU {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.carousel-chevron-1zo {
+}
+
+/* TODO @TW: cannot compose */
+.carousel-nextButton-3lU:focus > .carousel-chevron-1zo,
+.carousel-previousButton-1vE:focus > .carousel-chevron-1zo {
+  box-shadow: 0 0 4px 2px rgb(var(--venia-global-color-teal));
+  border-radius: 0.5rem;
+}
+
+.carousel-thumbnailList-2v3 {
+}
+/** The "thumbnail" is a round pil button below the product image in mobile or
+* as a thumbnail to the left of the product image in desktop.
+*/
+.thumbnail-root-3ea {
+  box-shadow: 0 0 0 1px #ffffff;
+}
+
+.thumbnail-rootSelected-3Va {
+}
+
+.thumbnail-image-cwU {
+}
+
+/* For desktop mode where buttons are an image... */
+@media (min-width: 960px) {
+  .thumbnail-rootSelected-3Va {
+    box-shadow: 0 0 10px 0 rgb(var(--venia-global-color-teal));
+  }
+
+  .thumbnail-image-cwU {
+    box-shadow: 0 0 0 1px white;
+  }
+}
+.quantityStepper-root-39j {
+  --stroke: var(--venia-global-color-gray-600);
+  grid-template-columns: 1fr 4rem 1fr;
+}
+
+.quantityStepper-wrap-v0H {
+}
+
+/* TODO @TW: cannot compose */
+.quantityStepper-label-1Sp:not(:focus):not(:active) {
+  /* composes: sr-only from global; */
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  white-space: nowrap;
+}
+
+.quantityStepper-button-BAm {
+  stroke: rgb(var(--stroke));
+}
+
+.quantityStepper-button-BAm:hover {
+  --stroke: rgb(var(--venia-global-color-gray-900));
+  border-color: rgb(var(--stroke));
+}
+
+/* TODO @TW: cannot compose */
+.quantityStepper-button-BAm:disabled,
+.quantityStepper-button-BAm:disabled:hover {
+  --stroke: rgb(var(--venia-global-color-gray-400));
+  /* composes: border-subtle from global; */
+  border-color: rgb(var(--venia-global-color-gray-400));
+}
+
+.quantityStepper-icon-1_J {
+  touch-action: manipulation;
+}
+
+.tileList-root-1_v {
+  grid-template-columns: repeat(auto-fit, minmax(3rem, -webkit-max-content));
+  grid-template-columns: repeat(auto-fit, minmax(3rem, max-content));
+}
+
+
+.multiselect-option-3IB:not(:last-child)::after {
+  content: ',\00a0';
+}
+
+@media (min-width: 960px) {
+  .productFullDetail-root-1E7 {
+    grid-template-areas:
+      'images title'
+      'images errors'
+      'images options'
+      'images quantity'
+      'images cart'
+      'images .';
+    grid-template-columns: minmax(0, 1.5625fr) minmax(0, 1fr);
+    grid-template-rows: repeat(5, -webkit-min-content) 1fr [fold];
+    grid-template-rows: repeat(5, min-content) 1fr [fold];
+  }
+
+  .productFullDetail-title-vxG {
+    grid-template-columns: 1fr -webkit-max-content;
+    grid-template-columns: 1fr max-content;
+  }
+}
+
+.productFullDetail-section-NVM {
+}
+
+.productFullDetail-sectionTitle-2sn {
+}
+
+.productFullDetail-title-vxG {
+  grid-area: title;
+}
+
+.productFullDetail-productName-iar {
+}
+
+.productFullDetail-productPrice-2Ob {
+}
+
+.productFullDetail-imageCarousel-3B4 {
+  grid-area: images;
+  grid-column: 1 / 2;
+  grid-row: 1 / fold;
+}
+
+.productFullDetail-options-riy {
+  grid-area: options;
+}
+
+.productFullDetail-formErrors-2oX {
+  grid-area: errors;
+}
+
+.productFullDetail-quantity-lZ3 {
+  grid-area: quantity;
+}
+
+.productFullDetail-quantityTitle-OpI {
+}
+
+.productFullDetail-actions-bS9 {
+  grid-area: cart;
+}
+
+.productFullDetail-description-21i {
+  grid-column: 1 / span 1;
+  grid-row: fold / span 1;
+}
+
+.productFullDetail-descriptionTitle-3f3 {
+}
+
+.productFullDetail-details-2Ih {
+  grid-column: 2 / span 1;
+  grid-row: fold / span 1;
+}
+
+.productFullDetail-detailsPageBuilder-2AT {
+  grid-column: 1 / span 2;
+}
+
+.productFullDetail-detailsPageBuilderList-G2N {
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  .productFullDetail-details-2Ih {
+    align-self: stretch;
+    border-top-width: 1px;
+    margin: 0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.productFullDetail-detailsTitle-3oa {
+}
+
+.productFullDetail-related-Ygn {
+  grid-column: 1 / span 2;
+}
+
+.productFullDetail-relatedTitle-3Mf {
+}
+
+.productFullDetail-quantityRoot-148 {
+  grid-template-columns: auto 4rem auto;
+}
+
+.productFullDetail-unavailableContainer-1n9 {
+}
+.productFullDetail-actButton-2Gz {
+}
+.carousel-shimmer-thumbnailRoot-3uw {
+}
+
+.carousel-shimmer-thumbnailImage-3AC {
+}
+.tile-root-1f- {
+  position: relative;
+}
+
+.tile-root_selected-328 {
+}
+
+.tile-root_focused-3pW {
+}
+
+.tile-root_selected_focused-3LB {
+}
+
+.tile-root_outOfStock-Eho,
+.tile-root_selected_outOfStock-3Eg {
+}
+.tile-root_outOfStock-Eho:after,
+.tile-root_selected_outOfStock-3Eg:after {
+  content: '';
+  position: absolute;
+  border-top: 2px solid rgb(var(--venia-global-color-gray-400));
+  width: 62px;
+  transform: rotate(-45deg);
+}
+/* TODO @TW: review. This relies on custom prop to set color from JSX "style" prop. */
+.swatch-root-SMe {
+  --venia-swatch-bg: var(--venia-global-color-gray-100);
+  background: var(--venia-swatch-bg);
+}
+
+/* TODO @TW: review. This relies on custom prop to set color from JSX "style" prop. */
+.swatch-root_selected-CCW {
+  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.2), transparent), var(--venia-swatch-bg);
+}
+
+.swatch-root_focused-2i6 {
+}
+
+.swatch-root_selected_focused-1j5 {
+}
+
+.swatch-checked-vir {
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 256ms;
+}
+
+.swatch-unchecked-Yrn {
+  opacity: 0;
+}
+
+.swatch-root_outOfStock-3H3,
+.swatch-root_selected_outOfStock-2F5 {
+}
+.swatch-root_outOfStock-3H3:after,
+.swatch-root_selected_outOfStock-2F5:after {
+  content: '';
+  position: absolute;
+  border-top: 2px solid rgb(var(--venia-global-color-gray-400));
+  width: 62px;
+  transform: rotate(-45deg);
+}
+.swatchList-root-31_ {
 }

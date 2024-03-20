@@ -39,7 +39,7 @@ const Gallery = ({ item }) => {
             />
             <img
               loading="eager"
-              fetchPriority="high"
+              // fetchPriority="high"
               alt={item[index].label}
               className="carousel-currentImage-1yX block h-full object-center object-contain w-full lg_object-top image-loaded-3O9 absolute left-0 top-0"
               sizes="640px"

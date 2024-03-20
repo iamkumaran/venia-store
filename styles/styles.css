@@ -6919,3 +6919,10 @@ a.banner-link-1UQ {
 .header-nav {
   height: 80px;
 }
+
+.product-detail, .product-list {
+  min-height: 100vh;
+}
+footer {
+  min-height: 118px;
+}

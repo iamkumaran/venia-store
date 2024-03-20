@@ -6915,3 +6915,7 @@ a.banner-link-1UQ {
   border-bottom: 2px solid rgb(var(--venia-global-color-border));
 }
 
+/* custom styles */
+.header-nav {
+  height: 80px;
+}

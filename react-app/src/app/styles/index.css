@@ -4194,6 +4194,7 @@ video {
 /* custom styles */
 .header-nav {
   height: 80px;
+  display: flex;
 }
 
 .product-detail, .product-list {

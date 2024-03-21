@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useQuery } from 'urql';
 import PRODUCTS_QUERY from '../../../../utils/gql/products.gql';
-import { getSelectedFilterPayload } from '../../../../utils/helper';
+import { getSelectedFilterPayload, updateImgDomain } from '../../../../utils/helper';
 import { setProductCount } from '../../../../library/context/store/actions';
 import { useStoreContext } from '../../../../library/context/store/StoreContext';
 
@@ -59,8 +59,8 @@ const List = ({ filtersList }) => {
                 alt={item.name}
                 className="item-image-3Wd block h-full object-contain w-full item-imageLoaded-2Dq image-loaded-3O9 absolute left-0 top-0 opacity-100"
                 sizes="(max-width: 640px) 300px, 840px"
-                src={item.small_image.url}
-                srcSet={item.small_image.url}
+                src={updateImgDomain(item.small_image.url)}
+                srcSet={updateImgDomain(item.small_image.url)}
                 width={840}
               />
             </div>
@@ -116,7 +116,7 @@ const List = ({ filtersList }) => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="icon-icon-_rq">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
               </span>
             </button>

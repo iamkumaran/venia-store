@@ -1,4 +1,4 @@
-import { CART_TOKEN_KEY } from './config/constants';
+import { CART_TOKEN_KEY, IMG_SOURCE } from './config/constants';
 
 /**
  * genarate unique ids to avaoid duplicate ids in one page
@@ -70,4 +70,12 @@ export const updateDomCartCount = count => {
   if (cartElem && count) {
     cartElem.textContent = count;
   }
+};
+
+export  const updateImgDomain = src => {
+  if (!src) {
+    return '';
+  }
+  const urlObj = new URL(src);
+  return src.replace(urlObj.origin, IMG_SOURCE);
 };

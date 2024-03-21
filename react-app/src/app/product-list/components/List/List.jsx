@@ -62,7 +62,7 @@ const List = ({ filtersList }) => {
                 className="item-image-3Wd block h-full object-contain w-full item-imageLoaded-2Dq image-loaded-3O9 absolute left-0 top-0 opacity-100"
                 sizes="(max-width: 640px) 300px, 840px"
                 src={updateImgDomain(`${item.small_image.url}?width=320&height=400`)}
-                srcSet={updateImgDomain(`${item.small_image.url}?width=320&height=400`)}
+                // srcSet={updateImgDomain(`${item.small_image.url}?width=320&height=400`)}
                 width={840}
               />
             </div>

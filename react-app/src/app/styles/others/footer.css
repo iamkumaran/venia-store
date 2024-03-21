@@ -1,0 +1,57 @@
+
+.footer-root-1tG {
+}
+
+.footer-links-3al {
+}
+
+.footer-linkGroup-2Vw {
+}
+
+.footer-linkItem-36X {
+}
+
+.footer-callout-16H {
+}
+
+.footer-calloutHeading-3jA {
+}
+
+.footer-calloutBody-3CA {
+}
+
+.footer-socialLinks-2Rg {
+}
+
+.footer-branding-17W {
+  grid-template-areas: 'a b c';
+}
+
+@media (max-width: 959px) {
+  .footer-branding-17W {
+    grid-template-areas: 'c' 'b' 'a';
+  }
+}
+
+@media (min-width: 960px) {
+  .footer-branding-17W {
+    grid-template-columns: minmax(200px, 1fr) auto minmax(200px, 1fr);
+  }
+}
+
+.footer-legal-2hP {
+  grid-area: c;
+}
+
+.footer-copyright-1KP {
+  grid-area: b;
+}
+
+.footer-logoContainer-16p {
+  grid-area: a;
+}
+
+.footer-logo-3WU {
+  height: var(--height);
+  width: var(--width);
+}

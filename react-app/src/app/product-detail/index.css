@@ -307,3 +307,42 @@
 }
 .swatchList-root-31_ {
 }
+.fieldIcons-root-Gff {
+  grid-template-areas: 'before input after';
+  grid-template-columns: auto 1fr auto;
+}
+
+.fieldIcons-input-1wB {
+  grid-column: before-start / after-end;
+  grid-row: input-start / input-end;
+}
+
+/* TODO @TW: cannot compose */
+.fieldIcons-input-1wB > input {
+  padding-left: calc(1.875rem * var(--iconsBefore) + 0.625rem);
+  padding-right: calc(1.875rem * var(--iconsAfter) + 0.625rem);
+}
+
+.fieldIcons-before-2dI,
+.fieldIcons-after-3Uw {
+}
+
+/* TODO @TW: cannot compose */
+.fieldIcons-before-2dI:empty,
+.fieldIcons-after-3Uw:empty {
+  display: none;
+}
+
+.fieldIcons-before-2dI {
+  grid-area: before;
+}
+
+.fieldIcons-after-3Uw {
+  grid-area: after;
+}
+
+/* TODO @TW: cannot compose */
+.fieldIcons-before-2dI svg {
+  /* composes: stroke-gray-600 from global; */
+  stroke: rgb(var(--venia-global-color-gray-600));
+}

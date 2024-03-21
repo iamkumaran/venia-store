@@ -1,0 +1,485 @@
+
+.currentFilter-root-2kn {
+  min-height: 2.5rem;
+}
+
+/* TODO @TW: cannot compose */
+.currentFilter-root-2kn svg {
+  /* composes: stroke-white from global; */
+  stroke: rgb(var(--venia-global-color-gray-50));
+}
+.currentFilters-root-2-V {
+}
+
+/* TODO @TW: cannot compose */
+.currentFilters-root-2-V:empty {
+  display: none;
+}
+
+.currentFilters-item-K3D {
+}
+.filterList-items-3pK {
+  grid-template-columns: 100%;
+}
+
+.filterList-showMoreLessItem-27u {
+}
+
+.filterList-showMoreLessButton-1fn {
+}
+.radioGroup-root-1_X {
+}
+
+.radioGroup-radioContainer-2bN {
+  grid-template-areas: 'input label';
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+}
+
+.radioGroup-message-3ei {
+}
+
+/* TODO @TW: cannot compose */
+.radioGroup-message-3ei:empty {
+  display: none;
+}
+.filterBlock-root-Jl- {
+}
+
+.filterBlock-header-Y0o {
+}
+
+.filterBlock-name-2Pb {
+}
+
+.filterBlock-list-2fc {
+}
+
+/* TODO @TW: cannot compose */
+.filterBlock-list-2fc:empty {
+  display: none;
+}
+.filterFooter-root-3MT {
+}
+.filterModal-root-3vR {
+  grid-template-rows: 1fr 7rem;
+  transform: translate3d(-100%, 0, 0);
+  transition-duration: 192ms;
+  transition-timing-function: var(--venia-global-anim-out);
+  transition-property: opacity, transform, visibility;
+
+  /* TODO @TW: review (B6) */
+  /* composes: invisible from global; */
+  visibility: hidden;
+}
+
+.filterModal-root_open-2x- {
+  transform: translate3d(0, 0, 0);
+  transition-duration: 224ms;
+  transition-timing-function: var(--venia-global-anim-in);
+
+  /* TODO @TW: review (B6) */
+  /* composes: visible from global; */
+  visibility: visible;
+}
+
+.filterModal-body-1dv {
+}
+
+.filterModal-header-3gK {
+}
+
+.filterModal-headerTitle-2_v {
+}
+
+.filterModal-action-1WJ {
+}
+
+/* TODO @TW: cannot compose */
+.filterModal-action-1WJ button {
+  /* composes: text-sm from global; */
+  font-size: 0.875rem;
+  /* composes: no-underline from global; */
+  text-decoration: none;
+}
+
+.filterModal-blocks-1iq {
+}
+
+/* TODO @TW: cannot compose */
+.filterModal-blocks-1iq > li:last-child {
+  /* composes: border-b-2 from global; */
+  /* composes: border-solid from global; */
+  /* composes: border-subtle from global; */
+  border-bottom: 2px solid rgb(var(--venia-global-color-border));
+}
+
+
+.filterModalOpenButton-filterButton-3kT {
+}
+.filterModalOpenButton-shimmer-filterButtonShimmer-3oy {
+}
+.filterSidebar-root-3TH {
+  grid-template-rows: 1fr 7rem;
+}
+
+.filterSidebar-body-3wX {
+}
+
+.filterSidebar-header-17v {
+}
+
+.filterSidebar-headerTitle--Ot {
+}
+
+.filterSidebar-action-cBm {
+}
+
+/* TODO @TW: cannot compose */
+.filterSidebar-action-cBm button {
+  /* composes: text-sm from global; */
+  font-size: 0.875rem;
+  /* composes: no-underline from global; */
+  text-decoration: none;
+}
+
+.filterSidebar-blocks-BxH {
+}
+
+/* TODO @TW: cannot compose */
+.filterSidebar-blocks-BxH > li:last-child {
+  /* composes: border-b-2 from global; */
+  /* composes: border-solid from global; */
+  /* composes: border-subtle from global; */
+  border-bottom: 2px solid rgb(var(--venia-global-color-border));
+}
+.image-root-2Qz {
+  /*
+   * For customization, we provide an empty root.
+   * These styles will be applied to the image container.
+   */
+}
+
+.image-container-2U5 {
+}
+
+.image-image-vYj {
+  /*
+   * For customization, we provide an empty image class.
+   * These styles will be applied directly to the image itself.
+   */
+}
+
+.image-loaded-3O9 {
+  /* TODO @TW: review (B6) */
+  /* composes: visible from global; */
+  visibility: visible;
+}
+
+.image-notLoaded-30T {
+  /* TODO @TW: review (B6) */
+  /* composes: invisible from global; */
+  visibility: hidden;
+}
+
+.image-placeholder-1mM {
+}
+
+.image-placeholder_layoutOnly-1jH {
+}
+.item-root-2AI {
+}
+
+.item-images-2Jh {
+  grid-template-areas: 'main';
+  position: relative;
+}
+
+.item-imageContainer-2bp {
+  grid-area: main;
+}
+
+.item-image-3Wd {
+  transition: opacity 512ms ease-out;
+}
+
+.item-imageLoaded-2Dq {
+}
+
+.item-imageNotLoaded-g2z {
+}
+
+.item-imagePlaceholder-3Ns {
+}
+
+.item-actionsContainer-2rd {
+  grid-template-columns: auto auto;
+}
+
+/* TODO @TW: cannot compose */
+.item-actionsContainer-2rd:empty {
+  display: none;
+}
+
+.item-name-1cZ {
+}
+
+.item-name-1cZ,
+.item-price-1Qq {
+  min-height: 1rem;
+}
+
+.item-unavailableContainer-n3g {
+}
+.gallery-root-1o3 {
+  grid-template-areas:
+    'actions'
+    'items';
+}
+
+.gallery-items-3dc {
+  grid-area: items;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 639px) {
+  .gallery-items-3dc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.productSort-root-3hp {
+}
+
+.productSort-menu-s3B {
+}
+
+.productSort-menuItem-1vi {
+}
+
+.productSort-sortButton-1Ii {
+  /* TODO @TW: review (C2). This is fragile to extend. */
+}
+
+.productSort-desktopText-3QH {
+}
+
+.productSort-sortText-3y1 {
+}
+
+.productSort-desktopIconWrapper-1m8 {
+  transform: translateX(10px);
+}
+
+.productSort-desktopIcon-2Vg {
+}
+
+.productSort-mobileText-3n_ {
+}
+.productSort-shimmer-root-2Yg {
+}
+
+.productSort-shimmer-sortButtonShimmer-3rE {
+}
+.sortedByContainer-root-vyI {
+}
+
+.sortedByContainer-sortText-wLM {
+}
+.category-root-2h5 {
+}
+
+.category-title-2c9 {
+}
+
+.category-pagination-1Ui {
+}
+
+.category-placeholder-2FX {
+}
+
+.category-categoryTitle-q7I {
+}
+
+.category-heading-XE8 {
+}
+
+.category-categoryContent-1jb {
+}
+
+.category-categoryInfo-3Ci {
+  flex-basis: 100%;
+}
+
+.category-headerButtons-1JJ {
+  flex-basis: 100%;
+}
+
+.category-contentWrapper-34q {
+}
+
+.category-sidebar-21s {
+}
+
+
+.checkbox-root-1vJ {
+  --stroke: var(--venia-global-color-gray-600);
+  grid-template-areas: 'input label';
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+}
+
+.checkbox-input-33X {
+  grid-area: input;
+
+  /* TODO @TW: review, replaces input:disabled. Check if working. */
+}
+
+.checkbox-icon-3mn {
+  grid-area: input;
+}
+
+.checkbox-icon-3mn svg {
+  stroke: rgb(var(--stroke));
+}
+
+.checkbox-label-1cy {
+  grid-area: label;
+}
+
+/* When the input is disabled, update the cursor on the sibling label element. */
+/* TODO @TW: cannot compose */
+.checkbox-input-33X:disabled ~ .checkbox-label-1cy {
+  cursor: default;
+}
+
+.checkbox-input-33X:checked:enabled + .checkbox-icon-3mn {
+  --stroke: var(--venia-brand-color-1-700);
+}
+
+/* TODO @TW: cannot compose, needs "checked" variant enabled. Cannot combine variants. */
+.checkbox-input-33X:active:enabled,
+.checkbox-input-33X:focus:enabled {
+  /* composes: active_shadow-radioActive from global; */
+  /* composes: focus_shadow-radioFocus from global; */
+  box-shadow: -3px 3px rgb(var(--venia-brand-color-1-100));
+  outline: none;
+}
+
+.checkbox-input_shimmer-2yp {
+}
+.radio-root-1CC {
+  grid-template-areas: 'input label';
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+}
+
+.radio-input-WO- {
+  grid-area: input;
+}
+
+.radio-icon-5aJ {
+  grid-area: input;
+}
+
+/* TODO @TW: cannot compose */
+.radio-icon-5aJ svg {
+  /* composes: stroke-gray-600 from global; */
+  stroke: rgb(var(--venia-global-color-gray-600));
+}
+
+.radio-label-3D4 {
+  grid-area: label;
+}
+
+/* TODO @TW: cannot compose */
+.radio-input-WO-:checked + .radio-icon-5aJ svg {
+  /* composes: stroke-brand-base from global; */
+  stroke: rgb(var(--venia-brand-color-1-700));
+}
+
+.radio-input_shimmer-1EN {
+}
+.field-root-ffA {
+}
+
+.field-label-2Ss {
+  min-height: 2.125rem;
+}
+
+.field-input-3CJ {
+  padding: calc(0.375rem - 1px) calc(0.625rem - 1px); /* TODO @TW: review */
+}
+
+.field-input-3CJ:disabled {
+  background: rgb(var(--venia-global-color-gray-100));
+  border-color: rgb(var(--venia-global-color-gray-400));
+  color: rgb(var(--venia-global-color-gray-darker));
+}
+
+.field-optional-1pS {
+}
+.textArea-input-26f {
+}
+
+.textArea-input_shimmer-33c {
+  font-size: 1rem;
+}
+.textInput-input-1mC {
+}
+
+.textInput-input_error-mvE {
+}
+
+.textInput-input_shimmer-2aH {
+  font-size: 1rem;
+  padding: calc(0.375rem - 1px) calc(0.625rem - 1px);
+}
+.shimmer-root-1XI {
+}
+
+/* TODO @TW: cannot compose */
+.shimmer-root-1XI::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--venia-global-maxWidth); /* TODO @TW: review. this should use TW theme value "maxWidth.site" */
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgb(var(--venia-global-color-gray-50) / 0%) 0%,
+    rgb(var(--venia-global-color-gray-50)) 40%,
+    rgb(var(--venia-global-color-gray-50) / 0%) 80%,
+    rgb(var(--venia-global-color-gray-50) / 0%) 100%
+  );
+  /* composes: bg-no-repeat from global; */
+  background-repeat: none;
+  background-size: var(--venia-global-maxWidth) 100%;
+  -webkit-animation-name: shimmer-shimmerAnimation--01;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+  will-change: transform;
+}
+
+.shimmer-root_rectangle-3r- {
+  min-height: 1rem;
+}
+
+.shimmer-root_textArea-2Iq {
+  min-height: 6.75rem;
+}
+
+.shimmer-root_textInput-UWd {
+}
+
+@-webkit-keyframes shimmer-shimmerAnimation--01 {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}

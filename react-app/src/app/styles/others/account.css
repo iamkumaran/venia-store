@@ -1,0 +1,153 @@
+
+.createAccount-root-3CK {
+}
+
+.createAccount-message--A6 {
+}
+
+/* TODO @TW: cannot compose */
+.createAccount-message--A6:empty {
+  display: none;
+}
+
+.createAccount-actions-3hy {
+}
+
+.createAccount-cancelButton-7DU {
+}
+
+.createAccount-submitButton-3OJ {
+}
+
+.createAccount-subscribe-2-U {
+}
+.password-root-1Pa:active {
+  --stroke: var(--venia-global-color-gray-700);
+}
+
+.password-passwordButton-2-3 {
+  --stroke: var(--venia-global-color-gray-500);
+}
+
+.password-passwordButton-2-3:hover {
+  --stroke: var(--venia-global-color-gray-700);
+}
+
+.password-passwordButton-2-3:focus {
+  --stroke: var(--venia-global-color-gray-700);
+}
+.googleReCaptcha-root-3TE {
+}
+.signIn-root-Zuz {
+}
+
+.signIn-forgotPassword-1ua {
+}
+
+.signIn-form-nPj {
+}
+
+.signIn-modal-2QW {
+  /* TODO @TW: review (B6) */
+  /* composes: invisible from global; */
+  visibility: hidden;
+}
+
+.signIn-modal_active-RjX {
+  /* TODO @TW: review (B6) */
+  /* composes: visible from global; */
+  visibility: visible;
+}
+
+.signIn-buttonsContainer-1vC {
+}
+
+.signIn-forgotPasswordButtonContainer-3D9 {
+}
+
+.signIn-forgotPasswordButton-7hp {
+}
+
+.signIn-title-2hm {
+}
+.accountMenuItems-root-2xf {
+}
+
+.accountMenuItems-link-TXg {
+}
+
+.accountMenuItems-signOut-3Pz {
+}
+.forgotPasswordForm-root-2_U {
+}
+
+.forgotPasswordForm-buttonContainer-3ZD {
+}
+
+.forgotPasswordForm-cancelButton-252 {
+}
+
+.forgotPasswordForm-submitButton-3Vt {
+}
+.formSubmissionSuccessful-root-1V0 {
+}
+
+.formSubmissionSuccessful-text-1kS {
+}
+
+.formSubmissionSuccessful-title-1dD {
+}
+.forgotPassword-root-2Wm {
+}
+
+.forgotPassword-title-4lE {
+}
+
+.forgotPassword-instructions-31d {
+}
+.accountMenu-root-1ou {
+  transition:
+    opacity 192ms var(--venia-global-anim-out),
+    visibility 192ms var(--venia-global-anim-out),
+    /* Adding delay to move container off the screen after previous transitions happened */ left 0s 192ms;
+  width: calc(100vw - 2rem); /* TODO @TW: cannot compose */
+  transform: translate3d(-50%, 0, 0);
+
+  /* TODO @TW: review (B6) */
+  /* composes: invisible from global; */
+  visibility: hidden;
+}
+
+.accountMenu-root_open-3j5 {
+  transition:
+    opacity 224ms var(--venia-global-anim-in),
+    visibility 224ms var(--venia-global-anim-in),
+    left 0s;
+
+  /* TODO @TW: review (B6) */
+  /* composes: visible from global; */
+  visibility: visible;
+}
+
+.accountMenu-contents-264 {
+  min-height: 10rem;
+  transform: translate3d(0, -8px, 0);
+  transition-duration: 192ms;
+  transition-property: transform;
+  transition-timing-function: var(--venia-global-anim-out);
+}
+
+.accountMenu-contents_open-1Mm {
+  transform: translate3d(0, 4px, 0);
+  transition-duration: 224ms;
+  transition-timing-function: var(--venia-global-anim-in);
+}
+
+.accountMenu-createAccount-4W1 {
+}
+
+.accountMenu-forgotPassword-3Kn {
+}
+
+.accountMenu-loading-2vT {
+}

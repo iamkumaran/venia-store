@@ -1,48 +1,14 @@
-import React, { useEffect } from 'react';
-import { useQuery } from 'urql';
-import PRODUCTS_QUERY from '../../../../utils/gql/products.gql';
-import { getSelectedFilterPayload, updateImgDomain } from '../../../../utils/helper';
-import { setProductCount } from '../../../../library/context/store/actions';
-import { useStoreContext } from '../../../../library/context/store/StoreContext';
-import GhostLoader from './GhostLoader';
+import React from 'react';
 
-const List = ({ filtersList }) => {
-  const { dispatch } = useStoreContext();
-
-  // when filter is applied then update the query and fetch new products
-  const getFilterData = getSelectedFilterPayload(filtersList);
-  const [result] = useQuery({
-    query: PRODUCTS_QUERY,
-    variables: {
-      currentPage: 1,
-      id: 'MjE=',
-      filters: {
-        ...getFilterData,
-        category_uid: {
-          eq: 'MjE=',
-        },
-      },
-      pageSize: 12,
-      sort: {
-        position: 'ASC',
-      },
-    },
-  });
-
-  const { data, fetching, error } = result;
-
-  useEffect(() => {
-    if (data && !fetching) {
-      dispatch(setProductCount(data.products.total_count));
-    }
-  }, [data, fetching]);
-
-  if (fetching) return <GhostLoader />;
-  if (error) return <p>Oh no... {error.message}</p>;
-
+const GhostLoader = () => {
+  const ghostData = [
+    { name: '', uid: 123 },
+    { name: '', uid: 12345 },
+    { name: '', uid: 12345678 },
+  ];
   return (
     <div className="gallery-items-3dc gap-xs grid mb-3">
-      {data.products.items.map((item, i) => (
+      {ghostData.map((item, i) => (
         <div key={item.uid} className="item-root-2AI content-start grid gap-y-2xs">
           <a aria-label={item.name} className="item-images-2Jh grid" href="/penelope-peasant-blouse.html">
             <div className="item-imageContainer-2bp image-container-2U5 relative">
@@ -55,26 +21,14 @@ const List = ({ filtersList }) => {
                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzUnPjxyZWN0IHdpZHRoPSc0JyBoZWlnaHQ9JzUnIHN0eWxlPSdmaWxsOiBub25lJyAvPjwvc3ZnPg=="
                 width={840}
               />
-              <img
-                loading={[0, 1, 2].includes(i) ? 'eager' : 'lazy'}
-                fetchPriority={[0, 1, 2].includes(i) ? 'high' : 'low'}
-                alt={item.name}
-                className="item-image-3Wd block h-full object-contain w-full item-imageLoaded-2Dq image-loaded-3O9 absolute left-0 top-0 opacity-100"
-                sizes="(max-width: 640px) 300px, 840px"
-                src={updateImgDomain(item.small_image.url)}
-                srcSet={updateImgDomain(item.small_image.url)}
-                width={840}
-              />
             </div>
           </a>
           <a className="item-name-1cZ font-semibold text-colorDefault" href="/penelope-peasant-blouse.html">
-            <span>
-              {item.name} {filtersList.length}
-            </span>
+            <span> </span>
           </a>
           <div className="item-price-1Qq text-colorDefault">
-            <span>$</span>
-            <span>{item.price_range.maximum_price.final_price.value}</span>
+            <span> </span>
+            <span> </span>
           </div>
           <div className="item-actionsContainer-2rd gap-x-xs grid pl-2xs">
             <button
@@ -99,7 +53,7 @@ const List = ({ filtersList }) => {
                     <path d="M16 10a4 4 0 0 1-8 0" />
                   </svg>
                 </span>
-                <span className="addToCartButton-text-3eM hidden xs_inline">ADD TO CART</span>
+                <span className="addToCartButton-text-3eM hidden xs_inline"> </span>
               </span>
             </button>
             <button
@@ -129,4 +83,4 @@ const List = ({ filtersList }) => {
   );
 };
 
-export default List;
+export default GhostLoader;

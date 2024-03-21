@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const SOURCE_ROOT = `${__dirname}/src`;
+const SOURCE_ROOT = `${__dirname}`;
 const staticFolderPath = path.join(SOURCE_ROOT, `/static/`);
 // array of relative path to the HTML files
 const htmlFiles = fs

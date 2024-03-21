@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const copyfiles = require('copyfiles');
 const path = require('path');
+// const multipleHtmlPlugins = require('./htmlWebpackPlugins');
 
 // Plugin to copy  dist files to EDS location
 class CopyFiles {
@@ -74,6 +75,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name]/[name].css',
     }),
+    // multipleHtmlPlugins,
     new HtmlWebpackPlugin({
       template: 'static/index.html', // create a template to start from
     }),

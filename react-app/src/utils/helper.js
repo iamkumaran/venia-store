@@ -72,10 +72,26 @@ export const updateDomCartCount = count => {
   }
 };
 
-export  const updateImgDomain = src => {
+export const updateImgDomain = src => {
   if (!src) {
     return '';
   }
   const urlObj = new URL(src);
   return src.replace(urlObj.origin, IMG_SOURCE);
+};
+
+export const extractDataFromUrl = () => {
+  const { hostname, pathname, search } = window.location;
+  const isLocal = hostname.includes('localhost');
+  // let str = '';
+  // if (!isLocal) {
+  //   str = pathname?.split('/') || [];
+  // } else {
+  //   str = new URLSearchParams(search).get('path')?.split('/') || [];
+  // }
+  const arr = !isLocal ? pathname.split('/') : new URLSearchParams(search).get('path')?.split('/') || [];
+  const uid = arr[arr.length - 1].replaceAll('-', '=');
+  const urlKey = arr[arr.length - 2];
+  // console.log('{ uid, urlKey }', { uid, urlKey });
+  return { uid, urlKey };
 };

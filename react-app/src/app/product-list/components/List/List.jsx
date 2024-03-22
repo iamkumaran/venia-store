@@ -1,25 +1,26 @@
 import React, { useEffect } from 'react';
 import { useQuery } from 'urql';
 import PRODUCTS_QUERY from '../../../../utils/gql/products.gql';
-import { getSelectedFilterPayload, updateImgDomain } from '../../../../utils/helper';
+import { extractDataFromUrl, getSelectedFilterPayload, updateImgDomain } from '../../../../utils/helper';
 import { setProductCount } from '../../../../library/context/store/actions';
 import { useStoreContext } from '../../../../library/context/store/StoreContext';
 import GhostLoader from './GhostLoader';
 
 const List = ({ filtersList }) => {
   const { dispatch } = useStoreContext();
-
+  const { uid } = extractDataFromUrl();
   // when filter is applied then update the query and fetch new products
   const getFilterData = getSelectedFilterPayload(filtersList);
   const [result] = useQuery({
     query: PRODUCTS_QUERY,
     variables: {
+      pause: true,
       currentPage: 1,
-      id: 'MjE=',
+      id: uid,
       filters: {
         ...getFilterData,
         category_uid: {
-          eq: 'MjE=',
+          eq: uid,
         },
       },
       pageSize: 12,
@@ -44,7 +45,10 @@ const List = ({ filtersList }) => {
     <div className="gallery-items-3dc gap-xs grid mb-3">
       {data.products.items.map((item, i) => (
         <div key={item.uid} className="item-root-2AI content-start grid gap-y-2xs">
-          <a aria-label={item.name} className="item-images-2Jh grid" href={`/products/${item.url_key}/${item.uid}`}>
+          <a
+            aria-label={item.name}
+            className="item-images-2Jh grid"
+            href={`/products/${item.url_key}/${item.uid.replaceAll('=', '-')}`}>
             <div className="item-imageContainer-2bp image-container-2U5 relative">
               <img
                 loading={[0, 1, 2].includes(i) ? 'eager' : 'lazy'}
@@ -57,7 +61,7 @@ const List = ({ filtersList }) => {
               />
               <img
                 loading={[0, 1, 2].includes(i) ? 'eager' : 'lazy'}
-                fetchPriority={[0, 1, 2].includes(i) ? 'high' : 'low'}
+                fetchPriority={[0, 1, 2].includes(i) ? 'high' : null}
                 alt={item.name}
                 className="item-image-3Wd block h-full object-contain w-full item-imageLoaded-2Dq image-loaded-3O9 absolute left-0 top-0 opacity-100"
                 sizes="(max-width: 640px) 300px, 840px"
@@ -67,7 +71,9 @@ const List = ({ filtersList }) => {
               />
             </div>
           </a>
-          <a className="item-name-1cZ font-semibold text-colorDefault" href={`/products/${item.url_key}/${item.uid}`}>
+          <a
+            className="item-name-1cZ font-semibold text-colorDefault"
+            href={`/products/${item.url_key}/${item.uid.replaceAll('=', '-')}`}>
             <span>
               {item.name} {filtersList.length}
             </span>

@@ -5,7 +5,7 @@
   background-color: #fff;
 }
 .megaMenuItem-megaMenuItem-1TT:hover > a + .submenu-submenu-iLX {
-  display: block;
+  display: flex;
 }
 
 .submenu-submenu-iLX{
@@ -229,7 +229,7 @@
   text-decoration: underline;
 }
 .submenu-submenu-iLX {
-  top: 80px;
+  top: 45px;
   box-shadow: 0 3px rgb(var(--venia-global-color-gray-100));
 }
 

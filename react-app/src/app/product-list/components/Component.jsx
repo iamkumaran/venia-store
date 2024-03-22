@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FilterBar from './FilterSection/FilterBar';
 import ListWrapper from './List/ListWrapper';
 import TotalCount from './List/TotalCount';
 
 const Component = () => {
+  const [categoryName, setCategoryName] = useState('');
   return (
     <article className="category-root-2h5 p-xs">
       <div>
         <h1 aria-live="polite" className="category-title-2c9 font-normal px-2xs py-0 text-xl">
           <div className="category-categoryTitle-q7I font-light leading-snug pb-xs text-colorDefault text-center text-xl">
-            Blouses &amp; Shirts
+            {categoryName}
           </div>
         </h1>
       </div>
@@ -69,7 +70,7 @@ const Component = () => {
           </div>
           <section>
             <div className="gallery-root-1o3 grid grid-cols-1 leading-none" aria-busy="false">
-              <ListWrapper />
+              <ListWrapper setCategoryName={setCategoryName} />
             </div>
           </section>
           <div className="category-pagination-1Ui relative bottom-0" />

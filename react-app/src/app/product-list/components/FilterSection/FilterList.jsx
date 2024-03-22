@@ -3,10 +3,10 @@ import { useQuery } from 'urql';
 import FilterListSub from './FilterListSub';
 import FILTERS_QUERY from '../../../../utils/gql/filters.gql';
 
-const FilterList = () => {
+const FilterList = ({ uid }) => {
   const [result] = useQuery({
     query: FILTERS_QUERY,
-    variables: { categoryIdFilter: { eq: 'MjE=' } },
+    variables: { categoryIdFilter: { eq: uid } },
   });
 
   const { data, fetching, error } = result;

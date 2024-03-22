@@ -80,6 +80,7 @@ export const updateImgDomain = src => {
   return src.replace(urlObj.origin, IMG_SOURCE);
 };
 
+// works only on PLP and PDP pages.
 export const extractDataFromUrl = () => {
   const { hostname, pathname, search } = window.location;
   const isLocal = hostname.includes('localhost');
@@ -90,8 +91,11 @@ export const extractDataFromUrl = () => {
   //   str = new URLSearchParams(search).get('path')?.split('/') || [];
   // }
   const arr = !isLocal ? pathname.split('/') : new URLSearchParams(search).get('path')?.split('/') || [];
-  const uid = arr[arr.length - 1].replaceAll('-', '=');
-  const urlKey = arr[arr.length - 2];
-  // console.log('{ uid, urlKey }', { uid, urlKey });
-  return { uid, urlKey };
+  if (arr.length) {
+    const uid = arr?.[arr.length - 1]?.replaceAll('-', '=');
+    const urlKey = arr?.[arr.length - 2];
+    // console.log('{ uid, urlKey }', { uid, urlKey });
+    return { uid, urlKey };
+  }
+  return {};
 };

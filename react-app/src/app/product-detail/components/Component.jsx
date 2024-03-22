@@ -10,8 +10,12 @@ import Title from './Content/Title';
 import Description from './Content/Description';
 import { getVariantProduct } from '../../../utils/helper';
 import ADD_TO_CART_MUTATION from '../../../utils/gql/mutations/add-to-cart.gql';
+import { useStoreContext } from '../../../library/context/store/StoreContext';
 
 const Component = () => {
+  const {
+    state: { urlKey },
+  } = useStoreContext();
   const [shouldPause, seShouldPause] = useState(false);
   const [productData, setProductData] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
@@ -22,7 +26,7 @@ const Component = () => {
   const [result] = useQuery({
     query: PRODUCT_DETAIL_QUERY,
     variables: {
-      urlKey: 'daria-crochet-skirt',
+      urlKey,
     },
     // this is required when useMutation call happens this query is getting executed unnecessary.
     pause: shouldPause,

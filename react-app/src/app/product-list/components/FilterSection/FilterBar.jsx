@@ -5,7 +5,7 @@ import { useStoreContext } from '../../../../library/context/store/StoreContext'
 
 const FilterBar = () => {
   const {
-    state: { selectedFilter },
+    state: { uid, selectedFilter },
   } = useStoreContext();
   return (
     <aside
@@ -36,7 +36,7 @@ const FilterBar = () => {
         </div>
 
         {/* Filters */}
-        <FilterList />
+        {uid && <FilterList uid={uid} />}
       </div>
     </aside>
   );

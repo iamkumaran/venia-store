@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react';
 import { useQuery } from 'urql';
 import PRODUCTS_QUERY from '../../../../utils/gql/products.gql';
-import { extractDataFromUrl, getSelectedFilterPayload, updateImgDomain } from '../../../../utils/helper';
+import { getSelectedFilterPayload, updateImgDomain } from '../../../../utils/helper';
 import { setProductCount } from '../../../../library/context/store/actions';
 import { useStoreContext } from '../../../../library/context/store/StoreContext';
 import GhostLoader from './GhostLoader';
 
-const List = ({ filtersList }) => {
-  const { dispatch } = useStoreContext();
-  const { uid } = extractDataFromUrl();
+const List = ({ setCategoryName, filtersList }) => {
+  const {
+    state: { uid, isLocal },
+    dispatch,
+  } = useStoreContext();
+  const addQs = isLocal ? '/?path=' : '';
   // when filter is applied then update the query and fetch new products
   const getFilterData = getSelectedFilterPayload(filtersList);
   const [result] = useQuery({
     query: PRODUCTS_QUERY,
     variables: {
-      pause: true,
       currentPage: 1,
       id: uid,
       filters: {
@@ -35,6 +37,7 @@ const List = ({ filtersList }) => {
   useEffect(() => {
     if (data && !fetching) {
       dispatch(setProductCount(data.products.total_count));
+      setCategoryName(data.categories.items[0].meta_description);
     }
   }, [data, fetching]);
 
@@ -48,7 +51,7 @@ const List = ({ filtersList }) => {
           <a
             aria-label={item.name}
             className="item-images-2Jh grid"
-            href={`/products/${item.url_key}/${item.uid.replaceAll('=', '-')}`}>
+            href={`${addQs}/products/${item.url_key}/${item.uid.replaceAll('=', '-')}`}>
             <div className="item-imageContainer-2bp image-container-2U5 relative">
               <img
                 loading={[0, 1, 2].includes(i) ? 'eager' : 'lazy'}
@@ -73,7 +76,7 @@ const List = ({ filtersList }) => {
           </a>
           <a
             className="item-name-1cZ font-semibold text-colorDefault"
-            href={`/products/${item.url_key}/${item.uid.replaceAll('=', '-')}`}>
+            href={`${addQs}/products/${item.url_key}/${item.uid.replaceAll('=', '-')}`}>
             <span>
               {item.name} {filtersList.length}
             </span>

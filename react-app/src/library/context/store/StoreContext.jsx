@@ -11,6 +11,7 @@ const initialState = {
   isLocal: window.location.hostname.includes('localhost'),
 
   // PLP
+  categoryName: '',
   selectedFilter: [],
   productsCount: 0,
 

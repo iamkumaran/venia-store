@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FilterBar from './FilterSection/FilterBar';
 import ListWrapper from './List/ListWrapper';
 import TotalCount from './List/TotalCount';
+import { useStoreContext } from '../../../library/context/store/StoreContext';
 
 const Component = () => {
-  const [categoryName, setCategoryName] = useState('');
+  const {
+    state: { categoryName },
+  } = useStoreContext();
   return (
     <article className="category-root-2h5 p-xs">
       <div>
@@ -70,7 +73,7 @@ const Component = () => {
           </div>
           <section>
             <div className="gallery-root-1o3 grid grid-cols-1 leading-none" aria-busy="false">
-              <ListWrapper setCategoryName={setCategoryName} />
+              <ListWrapper />
             </div>
           </section>
           <div className="category-pagination-1Ui relative bottom-0" />

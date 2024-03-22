@@ -33,6 +33,13 @@ const setProductCount = (state, productsCount) => {
   };
 };
 
+const setCategoryName = (state, categoryName) => {
+  return {
+    ...state,
+    categoryName,
+  };
+};
+
 // reducers
 const reducer = (state, action) => {
   switch (action.type) {
@@ -40,6 +47,8 @@ const reducer = (state, action) => {
       return setSelectedFilters(state, action.payload, action.bool);
     case ACTION.SET_PRODUCT_COUNT:
       return setProductCount(state, action.payload);
+    case ACTION.SET_CATEGORY_NAME:
+      return setCategoryName(state, action.payload);
     default:
       return state;
   }

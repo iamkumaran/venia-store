@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useQuery } from 'urql';
 import PRODUCTS_QUERY from '../../../../utils/gql/products.gql';
 import { getSelectedFilterPayload, updateImgDomain } from '../../../../utils/helper';
-import { setProductCount } from '../../../../library/context/store/actions';
+import { setCategoryName, setProductCount } from '../../../../library/context/store/actions';
 import { useStoreContext } from '../../../../library/context/store/StoreContext';
 import GhostLoader from './GhostLoader';
 
-const List = ({ setCategoryName, filtersList }) => {
+const List = ({ filtersList }) => {
   const {
     state: { uid, isLocal },
     dispatch,
@@ -36,8 +36,10 @@ const List = ({ setCategoryName, filtersList }) => {
 
   useEffect(() => {
     if (data && !fetching) {
+      // set product list count
       dispatch(setProductCount(data.products.total_count));
-      setCategoryName(data.categories.items[0].meta_description);
+      // set category name
+      dispatch(setCategoryName(data.categories.items[0].meta_description));
     }
   }, [data, fetching]);
 

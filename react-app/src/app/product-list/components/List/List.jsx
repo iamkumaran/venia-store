@@ -44,7 +44,7 @@ const List = ({ filtersList }) => {
     <div className="gallery-items-3dc gap-xs grid mb-3">
       {data.products.items.map((item, i) => (
         <div key={item.uid} className="item-root-2AI content-start grid gap-y-2xs">
-          <a aria-label={item.name} className="item-images-2Jh grid" href="/penelope-peasant-blouse.html">
+          <a aria-label={item.name} className="item-images-2Jh grid" href={`/products/${item.url_key}/${item.uid}`}>
             <div className="item-imageContainer-2bp image-container-2U5 relative">
               <img
                 loading={[0, 1, 2].includes(i) ? 'eager' : 'lazy'}
@@ -67,7 +67,7 @@ const List = ({ filtersList }) => {
               />
             </div>
           </a>
-          <a className="item-name-1cZ font-semibold text-colorDefault" href="/penelope-peasant-blouse.html">
+          <a className="item-name-1cZ font-semibold text-colorDefault" href={`/products/${item.url_key}/${item.uid}`}>
             <span>
               {item.name} {filtersList.length}
             </span>

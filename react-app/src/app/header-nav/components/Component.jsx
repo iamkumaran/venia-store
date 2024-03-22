@@ -20,7 +20,7 @@ const Component = () => {
           <a
             aria-label={`Category: ${menu.name}. ${menu.children.length ? `${menu.children.length} sub-categories` : ''}`}
             className="megaMenuItem-megaMenuLink-2Rr items-center inline-flex"
-            href={`/${menu.url_path}`}>
+            href={`/categories/${menu.url_path}/${menu.uid}`}>
             {menu.name}
             {menu.children.length > 0 && (
               <span className="megaMenuItem-arrowDown-24M leading-[0] pl-2xs">
@@ -51,7 +51,7 @@ const Component = () => {
                     className="submenuColumn-submenuColumn-1Hl max-w-[235px] p-5">
                     <a
                       className="submenuColumn-link-16H whitespace-nowrap focus_underline hover_underline"
-                      href={submenu.url_path}>
+                      href={`/categories/${submenu.url_path}/${submenu.uid}`}>
                       <span className="submenuColumn-heading-2is font-semibold">{submenu.name}</span>
                     </a>
                   </div>

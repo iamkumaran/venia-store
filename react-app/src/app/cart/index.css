@@ -1,0 +1,619 @@
+
+.button-root-17M {
+  padding-top: calc(0.5rem + 1px); /* TODO @TW: review */
+  padding-bottom: calc(0.5rem - 1px); /* TODO @TW: review */
+  min-height: 2.5rem;
+  transition-duration: 256ms;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: var(--venia-global-anim-standard);
+}
+
+.button-root-17M:active {
+  transition-duration: 128ms;
+}
+
+/**
+* Some browsers retain the :hover state after a click, this ensures if a button becomes disabled after
+* being clicked it will be visually disabled.
+*/
+.button-root-17M:hover:disabled {
+  /* TODO @TW: cannot compose. This may not be possible with two variants. */
+  pointer-events: none;
+}
+
+.errorView-root-2Di {
+  background: var(--backroundImageUrl);
+  /* two column grid because the "hangers" are on the right side of the page */
+  /* TODO @TW: review */
+  grid-template: 'content .';
+}
+
+.errorView-content-DR- {
+  grid-area: content;
+}
+
+@media (max-width: 639px) {
+  .errorView-root-2Di {
+      background-image: var(--mobileBackgroundImageUrl);
+      /* two row grid because the "hangers" are on the top of the page */
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+          '.'
+          'content';
+  }
+}
+.checkbox-root-1vJ {
+  --stroke: var(--venia-global-color-gray-600);
+  grid-template-areas: 'input label';
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+}
+
+.checkbox-input-33X {
+  grid-area: input;
+
+  /* TODO @TW: review, replaces input:disabled. Check if working. */
+}
+
+
+/* TODO @TW: cannot compose */
+.section-root-190:last-of-type {
+  /* composes: border-b-0 from global; */
+  border-bottom-width: 0;
+}
+
+/* TODO @TW: cannot compose */
+.section-contents_container-2eM:empty {
+  display: none;
+}
+
+
+
+.discountSummary-individualDiscountSeparator-rwM {
+
+  color: rgb(var(--venia-global-color-gray-300));
+}
+
+.discountSummary-individualDiscountsListLineItem-U3T {
+
+  color: rgb(var(--venia-global-color-gray-700));
+}
+
+.kebab-dropdown-8k8 {
+  box-shadow: 0 0 1px rgb(0, 0, 0, 0.2);
+  transition: 256ms ease-out;
+  transform: scale(0);
+  transform-origin: 100% 0;
+  display: none !important;
+}
+
+.kebab-dropdown_active-pCR {
+  display: block !important;
+  transform: scale(1);
+  transition: 250ms var(--venia-global-anim-bounce);
+}
+
+.section-icon-3oQ {
+
+  --stroke: rgb(var(--venia-global-color-teal));
+}
+
+.section-icon_filled-1wa {
+
+  --fill: rgb(var(--venia-global-color-teal));
+}
+/* The root aside element takes up the whole screen. */
+/* It is hidden by default. */
+/* It animates to being closed, and then moves off screen. */
+/* It sits over all background content. */
+.dialog-root-3Y- {
+  transform: translate3d(-50%, 0, 0);
+  transition: opacity 192ms var(--venia-global-anim-out),
+      visibility 192ms var(--venia-global-anim-out), left 0s 192ms;
+
+  /* TODO @TW: review (B6) */
+  /* composes: invisible from global; */
+  visibility: hidden;
+}
+
+.dialog-root_open-1iS {
+
+  /* TODO @TW: review (B6) */
+  /* composes: visible from global; */
+  visibility: visible;
+
+  /* It animates to being open. */
+  transition: opacity 224ms var(--venia-global-anim-in),
+      visibility 224ms var(--venia-global-anim-in), left 0s;
+}
+
+/*
+* Mobile-specific styles.
+*
+* Instead of being a full-page modal,
+* dialogs slide out from the right.
+*/
+
+@media (max-width: 959px) {
+  .dialog-root-3Y- {
+      /* The Dialog starts off-screen on the right. */
+      transform: translate3d(100%, 0, 0);
+      /* For mobile, add position to the transitions. */
+      transition-property: opacity, transform, visibility;
+  }
+
+  .dialog-root_open-1iS {
+      /* The Dialog animates (slides) onto the screen. */
+      transform: translate3d(0, 0, 0);
+  }
+}
+
+.wishlistLineItem-lineItemName-Z98 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 600px;
+}
+
+.wishlistDialog-formErrors-1vc {
+  grid-column: 1 / span 1;
+}
+
+.addToListButton-root-3FX {
+  min-height: 3rem;
+}
+
+.addToListButton-root_selected-VCZ {
+
+  --selectedColor: rgb(var(--venia-global-color-red-400));
+  --fill: var(--selectedColor);
+  --stroke: var(--selectedColor);
+}
+.quantityStepper-root-39j {
+  --stroke: var(--venia-global-color-gray-600);
+  grid-template-columns: 1fr 4rem 1fr;
+}
+
+.quantityStepper-wrap-v0H {
+}
+
+/* TODO @TW: cannot compose */
+.quantityStepper-label-1Sp:not(:focus):not(:active) {
+  /* composes: sr-only from global; */
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  white-space: nowrap;
+}
+
+.quantityStepper-button-BAm {
+  stroke: rgb(var(--stroke));
+}
+
+.quantityStepper-button-BAm:hover {
+  --stroke: rgb(var(--venia-global-color-gray-900));
+  border-color: rgb(var(--stroke));
+}
+
+/* TODO @TW: cannot compose */
+.quantityStepper-button-BAm:disabled,
+.quantityStepper-button-BAm:disabled:hover {
+  --stroke: rgb(var(--venia-global-color-gray-400));
+  /* composes: border-subtle from global; */
+  border-color: rgb(var(--venia-global-color-gray-400));
+}
+
+.quantityStepper-icon-1_J {
+  touch-action: manipulation;
+}
+
+.product-item-3Ev {
+  grid-template-areas: 'image details kebab';
+  grid-template-columns: 100px 1fr -webkit-min-content;
+  grid-template-columns: 100px 1fr min-content;
+}
+
+/* TODO @TW: cannot compose */
+.product-errorText-2hT:empty {
+  display: none;
+}
+
+.product-imageContainer-1FL {
+  grid-area: image;
+}
+
+
+@media (min-width: 640px) {
+  .product-details-1wz {
+      grid-area: details;
+      grid-template-areas:
+          'name name'
+          'options quantity'
+          'price quantity'
+          'stock quantity';
+      grid-template-columns: 2fr 1fr;
+  }
+}
+
+.product-name-27e {
+  grid-area: name;
+}
+
+.product-price-lkW {
+  grid-area: price;
+}
+
+.product-quantity-2uA {
+  grid-area: quantity;
+}
+
+.product-kebab-3dI {
+  grid-area: kebab;
+}
+
+
+.product-options-2TG {
+  grid-area: options;
+}
+
+.product-stockStatusMessage-XOo {
+  grid-area: stock;
+}
+
+/* TODO @TW: cannot compose */
+.product-stockStatusMessage-XOo:empty {
+  display: none;
+}
+
+.product-addToListButton-2dE {
+  --stroke: rgb(var(--venia-global-color-teal));
+}
+
+@media (max-width: 639px) {
+  .product-name-27e,
+  .product-options-2TG,
+  .product-price-lkW,
+  .product-stockStatusMessage-XOo,
+  .product-quantity-2uA {
+      grid-area: auto;
+  }
+}
+
+.cartPage-body-3FT {
+  grid-template-columns: 1fr 18rem;
+  /* The summary grid item spans the entire right column. */
+  grid-template-areas:
+      'items summary'
+      'adjustments summary';
+}
+
+/* TODO @TW: cannot compose */
+.cartPage-stockStatusMessageContainer-2Hu:empty {
+  display: none;
+}
+
+.cartPage-items_container-1RJ {
+  grid-area: items;
+}
+
+.cartPage-price_adjustments_container-2Mx {
+  grid-area: adjustments;
+}
+
+.cartPage-summary_container-2sh {
+  grid-area: summary;
+}
+
+@media (max-width: 959px) {
+  .cartPage-body-3FT {
+      /* Only one column in mobile view. */
+      grid-template-columns: 100%;
+      grid-template-areas:
+          'items'
+          'adjustments'
+          'summary';
+  }
+}
+
+/* TODO @TW: cannot compose */
+.createAccount-message--A6:empty {
+  display: none;
+}
+
+.password-root-1Pa:active {
+  --stroke: var(--venia-global-color-gray-700);
+}
+
+.password-passwordButton-2-3 {
+
+  --stroke: var(--venia-global-color-gray-500);
+}
+
+.password-passwordButton-2-3:hover {
+  --stroke: var(--venia-global-color-gray-700);
+}
+
+.password-passwordButton-2-3:focus {
+  --stroke: var(--venia-global-color-gray-700);
+}
+
+.signIn-modal-2QW {
+
+  /* TODO @TW: review (B6) */
+  /* composes: invisible from global; */
+  visibility: hidden;
+}
+
+.signIn-modal_active-RjX {
+
+  /* TODO @TW: review (B6) */
+  /* composes: visible from global; */
+  visibility: visible;
+}
+
+.accountMenu-root-1ou {
+  transition: opacity 192ms var(--venia-global-anim-out),
+      visibility 192ms var(--venia-global-anim-out),
+      /* Adding delay to move container off the screen after previous transitions happened */
+          left 0s 192ms;
+  width: calc(100vw - 2rem); /* TODO @TW: cannot compose */
+  transform: translate3d(-50%, 0, 0);
+
+  /* TODO @TW: review (B6) */
+  /* composes: invisible from global; */
+  visibility: hidden;
+}
+
+.accountMenu-root_open-3j5 {
+  transition: opacity 224ms var(--venia-global-anim-in),
+      visibility 224ms var(--venia-global-anim-in), left 0s;
+
+  /* TODO @TW: review (B6) */
+  /* composes: visible from global; */
+  visibility: visible;
+}
+
+.accountMenu-contents-264 {
+  min-height: 10rem;
+  transform: translate3d(0, -8px, 0);
+  transition-duration: 192ms;
+  transition-property: transform;
+  transition-timing-function: var(--venia-global-anim-out);
+}
+
+.accountMenu-contents_open-1Mm {
+
+  transform: translate3d(0, 4px, 0);
+  transition-duration: 224ms;
+  transition-timing-function: var(--venia-global-anim-in);
+}
+
+.select-wrapper-3X4 {
+  grid-template-areas: 'input icon';
+  grid-template-columns: auto 2.25rem;
+}
+
+.select-input-2zN,
+.select-input_error-2dU {
+  grid-area: input-start / input-start / input-end / icon-end;
+  padding-right: calc(2.25rem - 1px); /* TODO @TW: review */
+}
+
+.country-root-aoy {
+  grid-area: country;
+}
+.region-root-331 {
+  grid-area: state;
+}
+
+.shippingForm-root-2hk {
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+      'country country'
+      'state zip'
+      'submit submit';
+}
+
+.shippingForm-zip-103 {
+  grid-area: zip;
+}
+
+@media (max-width: 639px) {
+  .shippingForm-root-2hk {
+      /* Only one column in mobile view. */
+      grid-template-columns: 100%;
+      grid-template-areas:
+          'country'
+          'state'
+          'zip'
+          'submit';
+  }
+}
+
+.shippingMethods-shipping_methods-1AS {
+  grid-area: methods;
+}
+
+.radioGroup-radioContainer-2bN {
+  grid-template-areas: 'input label';
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+}
+
+/* TODO @TW: cannot compose */
+.radioGroup-message-3ei:empty {
+  display: none;
+}
+
+.giftCards-balance-QlV {
+  grid-template-columns: -webkit-max-content 1fr;
+  grid-template-columns: max-content 1fr;
+}
+
+.giftCards-card-1qL {
+  grid-template-areas:
+      'card_entry'
+      'check_balance_button'
+      'apply_button';
+}
+
+@media (min-width: 960px) {
+  .giftCards-card-1qL {
+      grid-template-areas:
+          'card_entry apply_button'
+          'check_balance_button check_balance_button';
+  }
+}
+
+
+.giftCards-invalid_card_error-1_i {
+  color: red;
+}
+
+/* TODO @TW: cannot compose */
+.giftCards-card_input_container_error-25w input {
+  /* composes: border-error from global; */
+  border-color: rgb(var(--venia-global-color-red-400));
+}
+
+/* TODO @TW: cannot compose */
+.giftCards-card_input_container_error-25w input:focus {
+  /* composes: border-gray-600 from global; */
+  border-color: rgb(var(--venia-global-color-gray-600));
+}
+
+/* TODO @TW: cannot compose */
+.giftCards-card_input_container_error-25w p {
+  /* composes: text-error from global; */
+  color: rgb(var(--venia-global-color-error));
+  /* composes: font-semibold from global; */
+  font-weight: 600;
+}
+
+.giftCards-cards_container-Gbd {
+  grid-template-columns: -webkit-max-content auto;
+  grid-template-columns: max-content auto;
+}
+
+.giftCards-check_balance_button-36A {
+  grid-area: check_balance_button;
+}
+
+.giftCards-entry-44V {
+  grid-area: card_entry;
+}
+
+/* on mobile... */
+@media (max-width: 959px) {
+  .couponCode-entryForm-1ub,
+  .couponCode-entryFormError-1rp {
+      /* switch to rows. */
+      grid-template-columns: unset;
+      grid-template-rows: 1fr 1fr;
+  }
+}
+
+/* TODO @TW: cannot compose */
+.couponCode-entryFormError-1rp input {
+  /* composes: border-error from global; */
+  border-color: rgb(var(--venia-global-color-red-400));
+}
+
+/* TODO @TW: cannot compose */
+.couponCode-entryFormError-1rp input:focus {
+  /* composes: border-gray-600 from global; */
+  border-color: rgb(var(--venia-global-color-gray-600));
+}
+
+/* TODO @TW: cannot compose */
+.couponCode-entryFormError-1rp p {
+  /* composes: text-error from global; */
+  color: rgb(var(--venia-global-color-error));
+  /* composes: font-semibold from global; */
+  font-weight: 600;
+}
+
+.spinner-root-3al {
+  --stroke: rgb(var(--venia-global-color-text-hint));
+}
+
+.giftOptions-option-rmL {
+  grid-template-columns: auto -webkit-min-content;
+  grid-template-columns: auto min-content;
+}
+
+.giftOptions-giftMessageResultContainer-3Nf,
+.giftOptions-giftMessageFields-2VC {
+}
+
+.giftOptions-giftMessageResultContainer-3Nf {
+
+  /* Small */
+}
+
+.giftOptions-giftMessageResult-2Gz p {
+  padding: 0.25rem 0;
+}
+
+
+.tile-root-1f- {
+  position: relative;
+}
+
+
+.tile-root_outOfStock-Eho:after,
+.tile-root_selected_outOfStock-3Eg:after {
+  content: '';
+  position: absolute;
+  border-top: 2px solid rgb(var(--venia-global-color-gray-400));
+  width: 62px;
+  transform: rotate(-45deg);
+}
+/* TODO @TW: review. This relies on custom prop to set color from JSX "style" prop. */
+.swatch-root-SMe {
+  --venia-swatch-bg: var(--venia-global-color-gray-100);
+  background: var(--venia-swatch-bg);
+}
+
+/* TODO @TW: review. This relies on custom prop to set color from JSX "style" prop. */
+.swatch-root_selected-CCW {
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.2), transparent),
+      var(--venia-swatch-bg);
+}
+
+.swatch-checked-vir {
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 256ms;
+}
+
+.swatch-unchecked-Yrn {
+  opacity: 0;
+}
+
+.swatch-root_outOfStock-3H3:after,
+.swatch-root_selected_outOfStock-2F5:after {
+  content: '';
+  position: absolute;
+  border-top: 2px solid rgb(var(--venia-global-color-gray-400));
+  width: 62px;
+  transform: rotate(-45deg);
+}
+.tileList-root-1_v {
+  grid-template-columns: repeat(auto-fit, minmax(3rem, -webkit-max-content));
+  grid-template-columns: repeat(auto-fit, minmax(3rem, max-content));
+}
+
+
+.productForm-quantityRoot-1Rm {
+  grid-template-columns: auto 4rem auto;
+}
+
+.productForm-loading-3BK {
+  transform: translateY(-50%);
+}

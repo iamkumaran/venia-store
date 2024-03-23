@@ -5,6 +5,7 @@ import { getSelectedFilterPayload, updateImgDomain } from '../../../../utils/hel
 import { setCategoryName, setProductCount } from '../../../../library/context/store/actions';
 import { useStoreContext } from '../../../../library/context/store/StoreContext';
 import GhostLoader from './GhostLoader';
+import { CURRENCY } from '../../../../utils/config/constants';
 
 const List = ({ filtersList }) => {
   const {
@@ -84,7 +85,7 @@ const List = ({ filtersList }) => {
             </span>
           </a>
           <div className="item-price-1Qq text-colorDefault">
-            <span>$</span>
+            <span>{CURRENCY[item.price_range.maximum_price.final_price.currency]}</span>
             <span>{item.price_range.maximum_price.final_price.value}</span>
           </div>
           <div className="item-actionsContainer-2rd gap-x-xs grid pl-2xs">

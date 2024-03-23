@@ -89,7 +89,7 @@ const Component = () => {
             setSize={setSelectedSize}
             handler={handleSizeChange}
           />
-          <Quantity setQty={setSelectedQty} />
+          <Quantity setQty={setSelectedQty} selectedQty={selectedQty} />
           <AddToCartSection
             sizeUid={selectedSize?.uid}
             colorUid={selectedColor?.uid}

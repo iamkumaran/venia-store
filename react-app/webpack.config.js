@@ -49,6 +49,7 @@ module.exports = {
   // entry: './src/app/product-list/index.jsx',
   entry: {
     styles: './src/app/styles/index.js',
+    cart: './src/app/cart/index.jsx',
     'header-nav': './src/app/header-nav/index.jsx',
     'product-list': './src/app/product-list/index.jsx',
     'product-detail': './src/app/product-detail/index.jsx',

@@ -1,4 +1,5 @@
 import { gql } from 'urql';
+import CartTriggerFragment from './fragments/CartTriggerFragment.gql';
 
 const CART_COUNT_QUERY = gql`
   query getItemCount($cartId: String!) {
@@ -8,12 +9,7 @@ const CART_COUNT_QUERY = gql`
       __typename
     }
   }
-  fragment CartTriggerFragment on Cart {
-    id
-    total_quantity
-    total_summary_quantity_including_config
-    __typename
-  }
+  ${CartTriggerFragment}
 `;
 
 export default CART_COUNT_QUERY;

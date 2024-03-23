@@ -1,4 +1,6 @@
 import { gql } from 'urql';
+import CategoryFragment from './fragments/CategoryFragment.gql';
+import ProductsFragment from './fragments/ProductsFragment.gql';
 
 const PRODUCTS_QUERY = gql`
   query GetCategories(
@@ -21,55 +23,8 @@ const PRODUCTS_QUERY = gql`
       __typename
     }
   }
-  fragment CategoryFragment on CategoryTree {
-    uid
-    meta_title
-    meta_keywords
-    meta_description
-    __typename
-  }
-  fragment ProductsFragment on Products {
-    items {
-      id
-      uid
-      name
-      price_range {
-        maximum_price {
-          final_price {
-            currency
-            value
-            __typename
-          }
-          regular_price {
-            currency
-            value
-            __typename
-          }
-          discount {
-            amount_off
-            __typename
-          }
-          __typename
-        }
-        __typename
-      }
-      sku
-      small_image {
-        url
-        __typename
-      }
-      stock_status
-      rating_summary
-      __typename
-      url_key
-    }
-    page_info {
-      total_pages
-      __typename
-    }
-    total_count
-    __typename
-  }
+  ${CategoryFragment}
+  ${ProductsFragment}
 `;
 
 export default PRODUCTS_QUERY;

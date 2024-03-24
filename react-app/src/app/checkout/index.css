@@ -1,0 +1,454 @@
+
+
+.signIn-modal-2QW {
+
+  /* TODO @TW: review (B6) */
+  /* composes: invisible from global; */
+  visibility: hidden;
+}
+
+.signIn-modal_active-RjX {
+
+  /* TODO @TW: review (B6) */
+  /* composes: visible from global; */
+  visibility: visible;
+}
+
+.accountMenu-root-1ou {
+  transition: opacity 192ms var(--venia-global-anim-out),
+      visibility 192ms var(--venia-global-anim-out),
+      /* Adding delay to move container off the screen after previous transitions happened */
+          left 0s 192ms;
+  width: calc(100vw - 2rem); /* TODO @TW: cannot compose */
+  transform: translate3d(-50%, 0, 0);
+
+  /* TODO @TW: review (B6) */
+  /* composes: invisible from global; */
+  visibility: hidden;
+}
+
+.accountMenu-root_open-3j5 {
+  transition: opacity 224ms var(--venia-global-anim-in),
+      visibility 224ms var(--venia-global-anim-in), left 0s;
+
+  /* TODO @TW: review (B6) */
+  /* composes: visible from global; */
+  visibility: visible;
+}
+
+.accountMenu-contents-264 {
+  min-height: 10rem;
+  transform: translate3d(0, -8px, 0);
+  transition-duration: 192ms;
+  transition-property: transform;
+  transition-timing-function: var(--venia-global-anim-out);
+}
+
+.accountMenu-contents_open-1Mm {
+
+  transform: translate3d(0, 4px, 0);
+  transition-duration: 224ms;
+  transition-timing-function: var(--venia-global-anim-in);
+}
+
+@media (max-width: 479px) {
+  /* TODO @TW: cannot compose */
+  .addressBook-buttonContainer-39I button {
+      min-width: 8rem;
+  }
+}
+
+.addressBook-content-3Sv {
+  grid-auto-rows: minmax(6rem, -webkit-max-content);
+  grid-auto-rows: minmax(6rem, max-content);
+}
+
+.addressBook-addButton-3l3 {
+  transition: border-color 384ms var(--venia-global-anim-standard);
+}
+.addressCard-root-uUg {
+  transition: border-color 384ms var(--venia-global-anim-in);
+}
+
+.addressCard-root_selected-2Eh {
+}
+
+.addressCard-root_updated-3xE {
+  -webkit-animation: addressCard-flash-SAI var(--venia-global-anim-bounce) 640ms 2;
+          animation: addressCard-flash-SAI var(--venia-global-anim-bounce) 640ms 2;
+}
+
+.addressCard-defaultCard-2OG {
+  grid-area: 1 / 1;
+}
+
+.addressCard-editButton-_17 {
+}
+
+.addressCard-editButton-_17:hover {
+  --fill: rgb(var(--venia-brand-color-1-700));
+}
+
+.addressCard-editIcon-2Hx {
+  fill: var(--fill, white);
+  transition: fill 384ms var(--venia-global-anim-standard);
+}
+
+@-webkit-keyframes addressCard-flash-SAI {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.5;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes addressCard-flash-SAI {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.5;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+.guestSignIn-root-3_P {
+  grid-template-columns: minmax(auto, 512px);
+}
+
+.priceSummary-checkoutButton_container-tJ_ {
+  min-height: 5.5rem;
+}
+
+.discountSummary-individualDiscountSeparator-rwM {
+
+  color: rgb(var(--venia-global-color-gray-300));
+}
+
+
+.discountSummary-individualDiscountsListLineItem-U3T {
+
+  color: rgb(var(--venia-global-color-gray-700));
+}
+.select-wrapper-3X4 {
+  grid-template-areas: 'input icon';
+  grid-template-columns: auto 2.25rem;
+}
+
+.select-input-2zN,
+.select-input_error-2dU {
+  grid-area: input-start / input-start / input-end / icon-end;
+  padding-right: calc(2.25rem - 1px); /* TODO @TW: review */
+}
+
+.country-root-aoy {
+  grid-area: country;
+}
+.region-root-331 {
+  grid-area: state;
+}
+
+/* TODO @TW: cannot compose */
+div[data-braintree-id='card'] {
+  border: none;
+}
+
+/* TODO @TW: cannot compose */
+div[data-braintree-id='card-sheet-header'] {
+  display: none;
+}
+
+/* TODO @TW: cannot compose */
+div[class*='braintree-sheet__content--form'] {
+  /**
+    This is needed to override padding on the dropin
+    component. If we use padding-top instead it just
+    overrides the padding-top not whole padding.
+  */
+  padding: 1rem 0 0 0;
+}
+
+.creditCard-credit_card_root-1wo {
+  transition-delay: 64ms;
+  transition-duration: 384ms;
+  transition-property: opacity, visbility;
+  transition-timing-function: var(--venia-global-anim-standard);
+}
+
+/* TODO @TW: cannot compose */
+.section-root-190:last-of-type {
+  /* composes: border-b-0 from global; */
+  border-bottom-width: 0;
+}
+
+/* TODO @TW: cannot compose */
+.section-contents_container-2eM:empty {
+  display: none;
+}
+
+/* Styles for "add" view. */
+.couponCode-entryForm-1ub,
+.couponCode-entryFormError-1rp {
+}
+
+/* on mobile... */
+@media (max-width: 959px) {
+  .couponCode-entryForm-1ub,
+  .couponCode-entryFormError-1rp {
+      /* switch to rows. */
+      grid-template-columns: unset;
+      grid-template-rows: 1fr 1fr;
+  }
+}
+
+/* TODO @TW: cannot compose */
+.couponCode-entryFormError-1rp input {
+  /* composes: border-error from global; */
+  border-color: rgb(var(--venia-global-color-red-400));
+}
+
+/* TODO @TW: cannot compose */
+.couponCode-entryFormError-1rp input:focus {
+  /* composes: border-gray-600 from global; */
+  border-color: rgb(var(--venia-global-color-gray-600));
+}
+
+/* TODO @TW: cannot compose */
+.couponCode-entryFormError-1rp p {
+  /* composes: text-error from global; */
+  color: rgb(var(--venia-global-color-error));
+  /* composes: font-semibold from global; */
+  font-weight: 600;
+}
+
+.completedView-contents-2v6 {
+  grid-template-rows: auto auto;
+}
+
+.radioGroup-radioContainer-2bN {
+  grid-template-areas: 'input label';
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+}
+
+.radioGroup-message-3ei {
+}
+
+/* TODO @TW: cannot compose */
+.radioGroup-message-3ei:empty {
+  display: none;
+}
+
+/* The root aside element takes up the whole screen. */
+/* It is hidden by default. */
+/* It animates to being closed, and then moves off screen. */
+/* It sits over all background content. */
+.dialog-root-3Y- {
+  transform: translate3d(-50%, 0, 0);
+  transition: opacity 192ms var(--venia-global-anim-out),
+      visibility 192ms var(--venia-global-anim-out), left 0s 192ms;
+
+  /* TODO @TW: review (B6) */
+  /* composes: invisible from global; */
+  visibility: hidden;
+}
+
+.dialog-root_open-1iS {
+
+  /* TODO @TW: review (B6) */
+  /* composes: visible from global; */
+  visibility: visible;
+
+  /* It animates to being open. */
+  transition: opacity 224ms var(--venia-global-anim-in),
+      visibility 224ms var(--venia-global-anim-in), left 0s;
+}
+
+/*
+* Mobile-specific styles.
+*
+* Instead of being a full-page modal,
+* dialogs slide out from the right.
+*/
+
+@media (max-width: 959px) {
+  .dialog-root-3Y- {
+      /* The Dialog starts off-screen on the right. */
+      transform: translate3d(100%, 0, 0);
+      /* For mobile, add position to the transitions. */
+      transition-property: opacity, transform, visibility;
+  }
+
+  .dialog-root_open-1iS {
+      /* The Dialog animates (slides) onto the screen. */
+      transform: translate3d(0, 0, 0);
+  }
+}
+
+.customerForm-regionError-3QD {
+  color: brown;
+  font-weight: 600;
+}
+
+@media (max-width: 959px) {
+  .customerForm-firstname-3bK {
+      grid-column: 1 / span 2;
+  }
+
+  .customerForm-lastname-3yH {
+      grid-column: 1 / span 2;
+  }
+}
+
+.guestForm-regionError-3R1 {
+  color: brown;
+  font-weight: 600;
+}
+
+@media (max-width: 959px) {
+  .guestForm-firstname-3nu {
+      grid-column: 1 / span 2;
+  }
+
+  .guestForm-lastname-1oz {
+      grid-column: 1 / span 2;
+  }
+}
+
+.shippingInformation-root_updated-1Zb {
+
+  -webkit-animation: shippingInformation-flash-2T3 var(--venia-global-anim-bounce) 640ms 2;
+
+          animation: shippingInformation-flash-2T3 var(--venia-global-anim-bounce) 640ms 2;
+}
+
+@-webkit-keyframes shippingInformation-flash-2T3 {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.5;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes shippingInformation-flash-2T3 {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.5;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+
+.createAccount-create_account_button-bWu {
+}
+.productOptions-options-3so {
+  grid-area: options;
+}
+
+.item-root-3Cy {
+
+  grid-template-rows: auto auto 1fr;
+  transition-delay: 64ms;
+  transition-duration: 384ms;
+  transition-property: opacity, visbility;
+  transition-timing-function: var(--venia-global-anim-standard);
+}
+
+
+.item-thumbnail-16V {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 3;
+}
+
+.item-name-3-f {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+
+.item-quantity-5yM {
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
+}
+
+.item-options-1qh {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.showAllButton-arrowDown-JfE {
+
+  --stroke: rgb(var(--venia-brand-color-1-700));
+}
+.itemsReview-items_review_container-2n7 {
+  min-height: 2rem;
+}
+
+.checkoutPage-shipping_information_container-293 {
+  grid-column: 1 / span 1;
+}
+
+.checkoutPage-shipping_method_container-34t {
+  grid-column: 1 / span 1;
+}
+
+.checkoutPage-payment_information_container-3Cs {
+  grid-column: 1 / span 1;
+}
+
+.checkoutPage-price_adjustments_container-23Y {
+  grid-column: 1 / span 1;
+}
+
+.checkoutPage-items_review_container-3fO {
+  grid-column: 1 / span 1;
+}
+
+.checkoutPage-summaryContainer-2bL {
+  grid-column: 1 / span 1;
+  /* TODO @TW: review. Magic number. Slightly bigger than sticky header. */
+}
+
+@media (min-width: 960px) {
+  .checkoutPage-summaryContainer-2bL {
+      grid-column: 2 / span 1;
+      grid-row: 2 / span 3;
+  }
+  .checkoutPage-reCaptchaMargin-1IR {
+      margin-bottom: 5.5rem;
+  }
+  .checkoutPage-signInContainerVisible-2ey {
+      grid-row: 1 / span 3;
+  }
+}
+
+.checkoutPage-formErrors-OE1 {
+  grid-column: 1 / span 1;
+}
+
+.checkoutPage-review_order_button-2aZ {
+
+  grid-column: 1 / span 1;
+}
+
+.checkoutPage-place_order_button-3cq {
+
+  grid-column: 1 / span 1;
+}
+.scrollAnchor-anchor-32b {
+  top: calc(
+      var(--venia-global-header-minHeight) * -1 - 5px
+  ); /* TODO @TW: review */
+}

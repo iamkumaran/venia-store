@@ -1,12 +1,20 @@
-import React from 'react';
-import { useQuery } from 'urql';
+import React, { useEffect } from 'react';
+import { useMutation, useQuery } from 'urql';
 import CartOptions from './CartOptions';
 import ProductItem from './CartSections/ProductItem';
 import PriceSummary from './CartSections/PriceSummary';
 import GET_CART_DETAILS_QUERY from '../../../utils/gql/get-cart-details.gql';
-import { getCartIdFromStorage } from '../../../utils/helper';
+import { getCartIdFromStorage, updateDomCartCount } from '../../../utils/helper';
+import UPDATE_CART_MUTATION from '../../../utils/gql/mutations/update-cart-items.gql';
+import REMOVE_ITEM_CART_MUTATION from '../../../utils/gql/mutations/remove-item-cart.gql';
 
 const Component = () => {
+  // update cart mutation
+  const [, updateCartItemsCall] = useMutation(UPDATE_CART_MUTATION);
+  // delate item mutation
+  const [, removeCartItemCall] = useMutation(REMOVE_ITEM_CART_MUTATION);
+
+  // get cart query
   const [result] = useQuery({
     query: GET_CART_DETAILS_QUERY,
     variables: {
@@ -15,6 +23,14 @@ const Component = () => {
   });
 
   const { data, fetching, error } = result;
+
+  // update cart number in header
+  useEffect(() => {
+    if (!fetching && data?.cart?.total_quantity) {
+      updateDomCartCount(data.cart.total_quantity);
+    }
+  }, [data, fetching]);
+
   if (fetching) return <p>Loading...</p>;
   if (error) return <p>Oh no... {error.message}</p>;
 
@@ -24,7 +40,12 @@ const Component = () => {
         <div className="cartPage-items_container-1RJ">
           <ul className="productListing-root-1Vx gap-x-md gap-y-xs grid">
             {data.cart.items.map(item => (
-              <ProductItem key={`cart-item-${item.uid}`} item={item} />
+              <ProductItem
+                key={`cart-item-${item.uid}`}
+                item={item}
+                updateCartItemsCall={updateCartItemsCall}
+                removeCartItemCall={removeCartItemCall}
+              />
             ))}
           </ul>
         </div>

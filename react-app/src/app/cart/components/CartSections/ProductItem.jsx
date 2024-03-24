@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import MoreOptions from './MoreOptions';
 import { useStoreContext } from '../../../../library/context/store/StoreContext';
-import { updateImgDomain } from '../../../../utils/helper';
+import { getCartIdFromStorage, updateImgDomain } from '../../../../utils/helper';
 import { CURRENCY } from '../../../../utils/config/constants';
 import QuantityStepper from '../../../../library/QuantityStepper/QuantityStepper';
 
-const ProductItem = ({ item, i }) => {
+const ProductItem = ({ item, i, updateCartItemsCall, removeCartItemCall }) => {
   const {
     state: { isLocal },
   } = useStoreContext();
@@ -18,6 +18,34 @@ const ProductItem = ({ item, i }) => {
   } = item;
 
   const [selectedQty, setSelectedQty] = useState(quantity);
+
+  const updateQty = qty => {
+    const variables = {
+      cartId: getCartIdFromStorage(),
+      quantity: qty,
+      itemId: item.uid,
+    };
+    updateCartItemsCall(variables).then(resp => {
+      if (resp.error) {
+        return false;
+      }
+      console.log('Update cart mutant call resp', resp);
+      setSelectedQty(qty);
+      return true;
+    });
+  };
+
+  const removeItem = () => {
+    const variables = {
+      cartId: getCartIdFromStorage(),
+      itemId: item.uid,
+    };
+    removeCartItemCall(variables).then(resp => {
+      if (resp.error) {
+        return false;
+      }
+    });
+  };
 
   return (
     <li className="product-root-2YO gap-y-2xs grid">
@@ -69,102 +97,12 @@ const ProductItem = ({ item, i }) => {
           <span className="product-stockStatusMessage-XOo font-semibold text-error text-sm" />
           <div className="product-quantity-2uA grid items-start justify-items-start sm_justify-items-center">
             <form>
-              <QuantityStepper setQty={setSelectedQty} selectedQty={selectedQty} />
-              {/* <div className="quantityStepper-root-39j gap-x-2xs grid items-center justify-items-center text-center">
-                <label className="quantityStepper-label-1Sp">Quantity</label>
-                <button
-                  aria-label="Decrease Quantity"
-                  className="quantityStepper-button_decrement-1vA quantityStepper-button-BAm bg-white border-2 border-solid border-button h-[2rem] inline-flex items-center justify-center rounded-full w-[2rem] disabled_cursor-not-allowed"
-                  type="button">
-                  <span className="quantityStepper-icon-1_J items-center inline-flex justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={22}
-                      height={22}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="icon-icon-_rq">
-                      <line x1={5} y1={12} x2={19} y2={12} />
-                    </svg>
-                  </span>
-                </button>
-                <span
-                  className="fieldIcons-root-Gff grid-flow-col h-[2.5rem] inline-grid w-full"
-                  style={{ '--iconsbefore': 0, '--iconsafter': 0 }}>
-                  <span className="fieldIcons-input-1wB items-center flex">
-                    <input
-                      aria-label="Item Quantity"
-                      inputMode="numeric"
-                      min={0}
-                      pattern="[0-9]*"
-                      className="quantityStepper-input-1RC textInput-input-1mC field-input-3CJ appearance-none bg-white border-2 border-solid border-input flex-textInput h-[2.5rem] inline-flex m-0 max-w-full rounded-md text-colorDefault text-colorDefault w-full focus_outline-none focus_shadow-inputFocus disabled_text-subtle text-center"
-                      id="dcbc4ecf-f024-4066-a85f-0b825a582ca4"
-                      name="quantity"
-                      defaultValue={quantity}
-                    />
-                  </span>
-                  <span className="fieldIcons-before-2dI flex items-center justify-center mx-0.5 my-0 pointer-events-none w-[2.5rem] z-foreground" />
-                  <span
-                    className="fieldIcons-after-3Uw flex items-center justify-center mx-0.5 my-0 pointer-events-none w-[2.5rem] z-foreground"
-                    aria-hidden="false"
-                  />
-                </span>
-                <p className="message-root-2op font-normal leading-none pb-0.5 pt-2.5 px-0.5 text-colorDefault text-sm" />
-                <button
-                  aria-label="Increase Quantity"
-                  className="quantityStepper-button_increment-1ih quantityStepper-button-BAm bg-white border-2 border-solid border-button h-[2rem] inline-flex items-center justify-center rounded-full w-[2rem] disabled_cursor-not-allowed"
-                  type="button">
-                  <span className="quantityStepper-icon-1_J items-center inline-flex justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={20}
-                      height={20}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="icon-icon-_rq">
-                      <line x1={12} y1={5} x2={12} y2={19} />
-                      <line x1={5} y1={12} x2={19} y2={12} />
-                    </svg>
-                  </span>
-                </button>
-              </div> */}
+              <QuantityStepper setQty={updateQty} selectedQty={selectedQty} />
             </form>
           </div>
         </div>
-        <div className="product-kebab-3dI relative">
-          <button
-            type="button"
-            aria-expanded="false"
-            className="kebab-kebab-3_P bg-white border-0"
-            aria-label="More Options Collapsed">
-            <span className="icon-root-2x9 items-center inline-flex justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="icon-icon-_rq">
-                <circle cx={12} cy={12} r={1} />
-                <circle cx={12} cy={5} r={1} />
-                <circle cx={12} cy={19} r={1} />
-              </svg>
-            </span>
-          </button>
-          <MoreOptions />
-        </div>
+
+        <MoreOptions removeItem={removeItem} />
       </div>
     </li>
   );

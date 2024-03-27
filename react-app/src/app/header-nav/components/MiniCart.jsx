@@ -1,4 +1,5 @@
 import React from 'react';
+import { CART_URL } from '../../../utils/config/constants';
 
 const MiniCart = () => {
   return (
@@ -7,6 +8,9 @@ const MiniCart = () => {
       className="header-secondaryActions-2BM col-start-3 grid grid-flow-col items-center justify-items-end justify-self-end w-max lg_col-end-13 lg_col-start-10 lg_gap-x-4">
       <div className="cartTrigger-triggerContainer-2Jd hidden items-center h-lg lg_grid">
         <button
+          onClick={() => {
+            window.location.href = CART_URL;
+          }}
           type="button"
           aria-expanded="false"
           aria-label="Toggle mini cart. You have 0 items in your cart."

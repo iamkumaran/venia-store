@@ -1,5 +1,5 @@
 import React from 'react';
-import { CURRENCY } from '../../utils/config/constants';
+import { CHECKOUT_URL, CURRENCY } from '../../utils/config/constants';
 
 const PriceSummary = ({ prices, isCart = false }) => {
   const { discounts, grand_total: total, subtotal_including_tax: subTotal } = prices;
@@ -87,6 +87,9 @@ const PriceSummary = ({ prices, isCart = false }) => {
       {isCart && (
         <div className="priceSummary-checkoutButton_container-tJ_ items-center inline-flex justify-center mt-xs w-full">
           <button
+            onClick={() => {
+              window.location.href = CHECKOUT_URL;
+            }}
             className="button-root_highPriority-1Zl button-root-17M border-2 border-solid cursor-pointer font-bold inline-flex items-center justify-center leading-tight max-w-full min-w-[10rem] outline-none pointer-events-auto px-sm rounded-full text-center text-sm uppercase disabled_bg-gray-400 disabled_border-gray-400 disabled_opacity-50 disabled_pointer-events-none disabled_text-white focus_shadow-inputFocus bg-brand-dark border-brand-dark text-white active_bg-brand-darkest active_border-brand-darkest active_text-white hover_bg-brand-darkest hover_border-brand-darkest hover_text-white"
             type="button">
             <span className="button-content-3wD gap-1.5 grid-flow-col inline-grid items-center justify-center justify-items-center">

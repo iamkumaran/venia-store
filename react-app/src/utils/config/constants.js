@@ -8,3 +8,7 @@ export const QTY_LIMIT = 10;
 
 // Local storage key
 export const CART_TOKEN_KEY = 'cartToken';
+
+// pages
+export const CART_URL = '/cart';
+export const CHECKOUT_URL = '/checkout';

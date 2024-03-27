@@ -5,13 +5,13 @@ import ViewPaymentCard from './ViewPaymentCard';
 import { getCartIdFromStorage } from '../../../../utils/helper';
 import GET_PAYMENT_INFO_QUERY from '../../../../utils/gql/get-payment-info.gql';
 
-const Payment = ({ showForm, showCard = false, updateStepper }) => {
+const Payment = ({ updateStepper }) => {
   const [result] = useQuery({
     query: GET_PAYMENT_INFO_QUERY,
     variables: {
       cartId: getCartIdFromStorage(),
     },
-    pause: showForm || showCard,
+    // pause: showForm || showCard,
   });
   const { data, fetching, error } = result;
 
@@ -26,15 +26,12 @@ const Payment = ({ showForm, showCard = false, updateStepper }) => {
   }, [data?.cart?.selected_payment_method]);
 
   return (
-    <div className="checkoutPage-payment_information_container-3Cs">
-      <h3 className="checkoutPage-payment_information_heading-1Ud checkoutPage-stepper_heading-3Do border-b border-solid border-subtle font-semibold pb-xs text-colorDefault uppercase lg_pb-md border-b-0 lg_border-b">
-        3. Payment Information
-      </h3>
-      {!data?.cart?.selected_payment_method && (
+    <>
+      {!data?.cart?.selected_payment_method?.code && (
         <PaymentForm payments={data?.cart?.available_payment_methods} updateStepper={updateStepper} />
       )}
       {data?.cart?.selected_payment_method?.code && <ViewPaymentCard />}
-    </div>
+    </>
   );
 };
 

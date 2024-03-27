@@ -40,7 +40,9 @@ const PaymentForm = ({ payments, updateStepper }) => {
                       return null;
                     }
                     return (
-                      <div className="paymentMethods-payment_method-3Mc border-b border-solid border-subtle pb-xs pt-xs">
+                      <div
+                        key={`py-${item.code}`}
+                        className="paymentMethods-payment_method-3Mc border-b border-solid border-subtle pb-xs pt-xs">
                         <label
                           className="radio-root-1CC gap-3 grid grid-flow-col items-center justify-items-center leading-normal m-0 text-colorDefault"
                           htmlFor={`paymentMethod--${item.code}`}

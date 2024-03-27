@@ -51,7 +51,9 @@ const ReviewOrder = () => {
                 {item.configurable_options.length > 0 && (
                   <dl className="item-options-1qh gap-2xs grid mt-xs text-sm">
                     {item.configurable_options.map(opt => (
-                      <div className="productOptions-optionLabel-3Pu auto-cols-max grid grid-flow-col">
+                      <div
+                        key={`ck-opt-${opt.value_label}-${opt.option_label}`}
+                        className="productOptions-optionLabel-3Pu auto-cols-max grid grid-flow-col">
                         <dt>{opt.option_label} :</dt>
                         <dd className="productOptions-optionValue-3z6 ml-1">{opt.value_label}</dd>
                       </div>

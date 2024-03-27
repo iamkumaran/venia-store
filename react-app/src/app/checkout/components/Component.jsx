@@ -14,6 +14,8 @@ import ReviewOrder from './OrderSummary/ReviewOrder';
 import PLACE_ORDER_MUTATION from '../../../utils/gql/mutations/place-order.gql';
 import CREATE_CART_MUTATION from '../../../utils/gql/mutations/create-cart.gql';
 import GET_RECAPTHCHA_QUERY from '../../../utils/gql/get-recaptcha.gql';
+import ShippingMethodTitle from './Shipping/ShippingMethodTitle';
+import PaymentTitle from './Payment/PaymentTitle';
 
 const Component = () => {
   const [stepper, setStepper] = useState({ step1: false, step2: false, step3: false });
@@ -113,24 +115,30 @@ const Component = () => {
 
         {/* Show when Step 1 is complete */}
         {stepper.step1 && <ViewShippingCard data={data?.cart?.shipping_addresses?.[0]} />}
-        {/* {stepper.step1 && !stepper.step2 && !stepper.step3 && ( */}
-        <ShippingMethod
-          canShowForm={stepper.step1 && !stepper.step2 && !stepper.step3}
-          list={data?.cart?.shipping_addresses?.[0]?.available_shipping_methods}
-        />
-        {/* )} */}
 
-        {/* Show when Step 1 & Step 2 is complete */}
-        {stepper.step1 && stepper.step2 && (
-          <ViewShippingMethodCard method={data?.cart?.shipping_addresses?.[0]?.selected_shipping_method} />
-        )}
+        {/* Shupping Method */}
+        <div className="checkoutPage-shipping_method_container-34t relative">
+          <ShippingMethodTitle />
+          {stepper.step1 && !stepper.step2 && !stepper.step3 && (
+            <ShippingMethod list={data?.cart?.shipping_addresses?.[0]?.available_shipping_methods} />
+          )}
+          {/* Show when Step 1 & Step 2 is complete */}
+          {stepper.step1 && stepper.step2 && (
+            <ViewShippingMethodCard method={data?.cart?.shipping_addresses?.[0]?.selected_shipping_method} />
+          )}
+        </div>
 
         {/* when step1 and step2 is complete */}
-        <Payment
-          showForm={stepper.step1 && stepper.step2 && !stepper.step3}
-          showCard={stepper.step3}
-          updateStepper={setStepper}
-        />
+        <div className="checkoutPage-payment_information_container-3Cs">
+          <PaymentTitle />
+          {stepper.step1 && stepper.step2 && (
+            <Payment
+              // showForm={stepper.step1 && stepper.step2 && !stepper.step3}
+              showCard={stepper.step3}
+              updateStepper={setStepper}
+            />
+          )}
+        </div>
         {/* when all steps are completed */}
 
         {stepper.step1 && stepper.step2 && stepper.step3 && (

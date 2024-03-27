@@ -5,7 +5,7 @@ import { CURRENCY } from '../../../../utils/config/constants';
 import SET_SHIPPING_METHOD_MUTATION from '../../../../utils/gql/mutations/set-shipping-method.gql';
 import { getCartIdFromStorage } from '../../../../utils/helper';
 
-const ShippingMethod = ({ canShowForm = false, list = [] }) => {
+const ShippingMethod = ({ list = [] }) => {
   const [, submitShippingMethodMutation] = useMutation(SET_SHIPPING_METHOD_MUTATION);
   const formOnSubmitHandler = e => {
     e.preventDefault();
@@ -30,12 +30,8 @@ const ShippingMethod = ({ canShowForm = false, list = [] }) => {
       });
   };
   return (
-    <div className="checkoutPage-shipping_method_container-34t relative">
-      <div className="scrollAnchor-anchor-32b absolute" />
-      <h3 className="checkoutPage-shipping_method_heading-1sP checkoutPage-stepper_heading-3Do border-b border-solid border-subtle font-semibold pb-xs text-colorDefault uppercase lg_pb-md">
-        2. Shipping Method
-      </h3>
-      {canShowForm && list.length && (
+    <>
+      {list.length && (
         <form
           id="shipping-method-form"
           className="shippingMethod-form-nlg gap-y-sm grid grid-rows-autoLast"
@@ -44,6 +40,7 @@ const ShippingMethod = ({ canShowForm = false, list = [] }) => {
             {list.map((item, i) => (
               // eslint-disable-next-line jsx-a11y/label-has-associated-control
               <label
+                key={`shipping_method--${item.carrier_code}-${item.carrier_code}`}
                 className="radioGroup-radioContainer-2bN gap-3 grid grid-flow-col justify-center leading-normal"
                 htmlFor={`shipping_method--${item.carrier_code}-${item.carrier_code}`}
                 aria-label="">
@@ -81,7 +78,7 @@ const ShippingMethod = ({ canShowForm = false, list = [] }) => {
           </div>
         </form>
       )}
-    </div>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import { CURRENCY } from '../../../../utils/config/constants';
 import SET_SHIPPING_METHOD_MUTATION from '../../../../utils/gql/mutations/set-shipping-method.gql';
 import { getCartIdFromStorage } from '../../../../utils/helper';
 
-const ShippingMethod = ({ list = [] }) => {
+const ShippingMethod = ({ canShowForm = false, list = [] }) => {
   const [, submitShippingMethodMutation] = useMutation(SET_SHIPPING_METHOD_MUTATION);
   const formOnSubmitHandler = e => {
     e.preventDefault();
@@ -35,7 +35,7 @@ const ShippingMethod = ({ list = [] }) => {
       <h3 className="checkoutPage-shipping_method_heading-1sP checkoutPage-stepper_heading-3Do border-b border-solid border-subtle font-semibold pb-xs text-colorDefault uppercase lg_pb-md">
         2. Shipping Method
       </h3>
-      {list.length && (
+      {canShowForm && list.length && (
         <form
           id="shipping-method-form"
           className="shippingMethod-form-nlg gap-y-sm grid grid-rows-autoLast"

@@ -33,7 +33,7 @@ const Payment = ({ showForm, showCard = false, updateStepper }) => {
       {!data?.cart?.selected_payment_method && (
         <PaymentForm payments={data?.cart?.available_payment_methods} updateStepper={updateStepper} />
       )}
-      {data?.cart?.selected_payment_method && <ViewPaymentCard />}
+      {data?.cart?.selected_payment_method?.code && <ViewPaymentCard />}
     </div>
   );
 };

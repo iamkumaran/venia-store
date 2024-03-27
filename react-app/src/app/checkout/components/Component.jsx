@@ -69,18 +69,18 @@ const Component = () => {
     executeCaptchaCall();
   }, []);
 
-  useEffect(() => {
-    if (captchaData?.recaptchaV3Config) {
-      setCatpchaKey(captchaData.recaptchaV3Config.website_key);
-      setTimeout(() => {
-        lazyloadJS('https://www.google.com/recaptcha/api.js', null, () => {
-          setTimeout(() => {
-            window.grecaptcha.execute();
-          }, 200);
-        });
-      }, 100);
-    }
-  }, [captchaData]);
+  // useEffect(() => {
+  //   if (captchaData?.recaptchaV3Config) {
+  //     setCatpchaKey(captchaData.recaptchaV3Config.website_key);
+  //     // setTimeout(() => {
+  //     //   lazyloadJS('https://www.google.com/recaptcha/api.js', null, () => {
+  //     //     setTimeout(() => {
+  //     //       window.grecaptcha.execute();
+  //     //     }, 200);
+  //     //   });
+  //     // }, 100);
+  //   }
+  // }, [captchaData]);
 
   useEffect(() => {
     const shippingAddresses = data?.cart?.shipping_addresses;
@@ -113,9 +113,12 @@ const Component = () => {
 
         {/* Show when Step 1 is complete */}
         {stepper.step1 && <ViewShippingCard data={data?.cart?.shipping_addresses?.[0]} />}
-        {stepper.step1 && !stepper.step2 && !stepper.step3 && (
-          <ShippingMethod list={data?.cart?.shipping_addresses?.[0]?.available_shipping_methods} />
-        )}
+        {/* {stepper.step1 && !stepper.step2 && !stepper.step3 && ( */}
+        <ShippingMethod
+          canShowForm={stepper.step1 && !stepper.step2 && !stepper.step3}
+          list={data?.cart?.shipping_addresses?.[0]?.available_shipping_methods}
+        />
+        {/* )} */}
 
         {/* Show when Step 1 & Step 2 is complete */}
         {stepper.step1 && stepper.step2 && (

@@ -6,7 +6,7 @@ const ViewShippingCard = ({ data }) => {
       <div className="scrollAnchor-anchor-32b absolute" />
       <div className="shippingInformation-root-Khd border-2 border-solid border-subtle p-md rounded-md">
         <div className="shippingInformation-cardHeader-3-i grid grid-cols-1 grid-flow-col">
-          <h5 className="shippingInformation-cardTitle-2mO font-semibold">Shipping Information</h5>
+          <h5 className="shippingInformation-cardTitle-2mO font-semibold">1. Shipping Information</h5>
           <button className="shippingInformation-editButton-2qg -m-xs p-xs text-brand-dark" type="button">
             <span className="button-content-3wD gap-1.5 grid-flow-col inline-grid items-center justify-center justify-items-center">
               <span className="icon-root-2x9 items-center inline-flex justify-center">

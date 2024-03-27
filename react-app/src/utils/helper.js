@@ -99,3 +99,21 @@ export const extractDataFromUrl = () => {
   }
   return {};
 };
+
+export function lazyloadJS(url, target = null, callback = null) {
+  const d = document;
+  const s = d.createElement('script');
+  const b = target || d.body || d.getElementsByTagName('body')[0];
+  const attributes = {
+    src: url,
+    defer: 'defer',
+  };
+  // eslint-disable-next-line guard-for-in, no-restricted-syntax
+  for (const i in attributes) {
+    s.setAttribute(i, attributes[i]);
+  }
+  if (callback) {
+    s.onload = callback;
+  }
+  b.appendChild(s);
+}

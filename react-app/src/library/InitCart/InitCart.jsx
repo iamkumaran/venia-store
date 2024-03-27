@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useMutation, useQuery } from 'urql';
-import CREATE_CART_MUTATION from '../../utils/gql/create-cart.gql';
+import CREATE_CART_MUTATION from '../../utils/gql/mutations/create-cart.gql';
 import { CART_TOKEN_KEY } from '../../utils/config/constants';
 import { getCartIdFromStorage, updateDomCartCount } from '../../utils/helper';
 import CART_COUNT_QUERY from '../../utils/gql/cart-count.gql';

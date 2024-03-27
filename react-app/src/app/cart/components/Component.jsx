@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useMutation, useQuery } from 'urql';
 import CartOptions from './CartOptions';
 import ProductItem from './CartSections/ProductItem';
-import PriceSummary from './CartSections/PriceSummary';
+import PriceSummarySection from './CartSections/PriceSummarySection';
 import GET_CART_DETAILS_QUERY from '../../../utils/gql/get-cart-details.gql';
 import { getCartIdFromStorage, updateDomCartCount } from '../../../utils/helper';
 import UPDATE_CART_MUTATION from '../../../utils/gql/mutations/update-cart-items.gql';
@@ -50,7 +50,7 @@ const Component = () => {
           </ul>
         </div>
         <CartOptions />
-        <PriceSummary prices={data.cart.prices} />
+        <PriceSummarySection prices={data.cart.prices} />
       </div>
     </div>
   );

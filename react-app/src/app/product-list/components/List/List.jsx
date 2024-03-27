@@ -5,7 +5,7 @@ import { getSelectedFilterPayload, updateImgDomain } from '../../../../utils/hel
 import { setCategoryName, setProductCount } from '../../../../library/context/store/actions';
 import { useStoreContext } from '../../../../library/context/store/StoreContext';
 import GhostLoader from './GhostLoader';
-import { CURRENCY } from '../../../../utils/config/constants';
+import { CURRENCY, PDP_URL } from '../../../../utils/config/constants';
 
 const List = ({ filtersList }) => {
   const {
@@ -79,7 +79,7 @@ const List = ({ filtersList }) => {
           </a>
           <a
             className="item-name-1cZ font-semibold text-colorDefault"
-            href={`${addQs}/products/${item.url_key}/${item.uid.replaceAll('=', '-')}`}>
+            href={`${addQs}${PDP_URL}${item.url_key}/${item.uid.replaceAll('=', '-')}`}>
             <span>
               {item.name} {filtersList.length}
             </span>
@@ -91,7 +91,7 @@ const List = ({ filtersList }) => {
           <div className="item-actionsContainer-2rd gap-x-xs grid pl-2xs">
             <button
               onClick={() => {
-                window.location.href = `${addQs}/products/${item.url_key}/${item.uid.replaceAll('=', '-')}`;
+                window.location.href = `${addQs}${PDP_URL}${item.url_key}/${item.uid.replaceAll('=', '-')}`;
               }}
               className="addToCartButton-root-vwC button-root_highPriority-1Zl button-root-17M border-2 border-solid cursor-pointer font-bold inline-flex items-center justify-center leading-tight max-w-full min-w-[10rem] outline-none pointer-events-auto px-sm rounded-full text-center text-sm uppercase disabled_bg-gray-400 disabled_border-gray-400 disabled_opacity-50 disabled_pointer-events-none disabled_text-white focus_shadow-inputFocus bg-brand-dark border-brand-dark text-white active_bg-brand-darkest active_border-brand-darkest active_text-white hover_bg-brand-darkest hover_border-brand-darkest hover_text-white min-w-[6.125rem] -ml-2xs px-2xs py-0 self-center sm_min-w-[8rem]"
               type="button"

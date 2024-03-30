@@ -117,3 +117,16 @@ export function lazyloadJS(url, target = null, callback = null) {
   }
   b.appendChild(s);
 }
+
+export const addPreloadImage = file => {
+  if (file) {
+    const elem = document.createElement('link');
+    elem.setAttribute('rel', 'preload');
+    elem.setAttribute('fetchpriority', 'high');
+    elem.setAttribute('as', 'image');
+    elem.setAttribute('href', file);
+    elem.setAttribute('type', 'image/webp');
+    document.head.append(elem);
+  }
+  // <link rel="preload" fetchpriority="high" as="image" href="/path/to/hero-image.webp" type="image/webp">
+};

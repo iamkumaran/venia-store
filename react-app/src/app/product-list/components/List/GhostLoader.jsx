@@ -1,16 +1,17 @@
 import React from 'react';
 
 const GhostLoader = () => {
+  const file = document.head.querySelector('meta[name=preload]')?.content;
   const ghostData = [
-    { name: '', uid: 123 },
-    { name: '', uid: 12345 },
-    { name: '', uid: 12345678 },
+    { name: '', uid: 123, file },
+    { name: '', uid: 12345, file },
+    { name: '', uid: 12345678, file },
   ];
   return (
     <div className="gallery-items-3dc gap-xs grid mb-3">
       {ghostData.map((item, i) => (
         <div key={item.uid} className="item-root-2AI content-start grid gap-y-2xs">
-          <a aria-label={item.name} className="item-images-2Jh grid" href="/penelope-peasant-blouse.html">
+          <a aria-label={item.name} className="item-images-2Jh grid" href="#" style={{ pointerEvents: 'none' }}>
             <div className="item-imageContainer-2bp image-container-2U5 relative">
               <img
                 loading={[0, 1, 2].includes(i) ? 'eager' : 'lazy'}
@@ -21,9 +22,18 @@ const GhostLoader = () => {
                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzUnPjxyZWN0IHdpZHRoPSc0JyBoZWlnaHQ9JzUnIHN0eWxlPSdmaWxsOiBub25lJyAvPjwvc3ZnPg=="
                 width={840}
               />
+              <img
+                loading={[0, 1, 2].includes(i) ? 'eager' : 'lazy'}
+                fetchPriority={[0, 1, 2].includes(i) ? 'high' : null}
+                alt={item.name}
+                className="item-image-3Wd block h-full object-contain w-full item-imageLoaded-2Dq image-loaded-3O9 absolute left-0 top-0 opacity-100"
+                sizes="(max-width: 640px) 300px, 840px"
+                src={file}
+                width={840}
+              />
             </div>
           </a>
-          <a className="item-name-1cZ font-semibold text-colorDefault" href="/penelope-peasant-blouse.html">
+          <a className="item-name-1cZ font-semibold text-colorDefault" href="#" style={{ pointerEvents: 'none' }}>
             <span> </span>
           </a>
           <div className="item-price-1Qq text-colorDefault">
@@ -32,6 +42,7 @@ const GhostLoader = () => {
           </div>
           <div className="item-actionsContainer-2rd gap-x-xs grid pl-2xs">
             <button
+              style={{ pointerEvents: 'none' }}
               className="addToCartButton-root-vwC button-root_highPriority-1Zl button-root-17M border-2 border-solid cursor-pointer font-bold inline-flex items-center justify-center leading-tight max-w-full min-w-[10rem] outline-none pointer-events-auto px-sm rounded-full text-center text-sm uppercase disabled_bg-gray-400 disabled_border-gray-400 disabled_opacity-50 disabled_pointer-events-none disabled_text-white focus_shadow-inputFocus bg-brand-dark border-brand-dark text-white active_bg-brand-darkest active_border-brand-darkest active_text-white hover_bg-brand-darkest hover_border-brand-darkest hover_text-white min-w-[6.125rem] -ml-2xs px-2xs py-0 self-center sm_min-w-[8rem]"
               type="button"
               aria-label="Add to cart">

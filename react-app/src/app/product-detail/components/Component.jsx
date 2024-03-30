@@ -74,10 +74,13 @@ const Component = () => {
   return (
     <form className="productFullDetail-root-1E7 px-0 py-xs lg_grid lg_grid-flow-row lg_items-start lg_px-xs lg_py-md">
       {fetching && (
-        <Gallery
-          item={[{ uid: 123456, label: 'Loading', file: document.head.querySelector('meta[name=preload]')?.content }]}
-          preload
-        />
+        <>
+          <Gallery
+            item={[{ uid: 123456, label: 'Loading', file: document.head.querySelector('meta[name=preload]')?.content }]}
+            preload
+          />
+          <Title name="&nbsp;" priceObj="&nbsp;" />
+        </>
       )}
       {!fetching && productData && (
         <>

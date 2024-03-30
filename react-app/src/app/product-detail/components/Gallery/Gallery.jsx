@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { IMG_PATH, IMG_QS, IMG_SOURCE } from '../../../../utils/config/constants';
 
 const Gallery = ({ item, preload = false }) => {

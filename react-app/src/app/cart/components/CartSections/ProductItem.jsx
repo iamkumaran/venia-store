@@ -54,7 +54,7 @@ const ProductItem = ({ item, i, updateCartItemsCall, removeCartItemCall }) => {
         <a
           className="product-imageContainer-1FL"
           href={`${addQs}/products/${product.url_key}/${product.uid.replaceAll('=', '-')}`}>
-          <div className="product-imageRoot-3Gl image-container-2U5 relative">
+          <div className="product-imageRoot-3Gl h-full image-container-2U5 relative">
             <img
               loading={[0, 1, 2].includes(i) ? 'eager' : 'lazy'}
               aria-hidden="true"

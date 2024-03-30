@@ -34,11 +34,11 @@ const GhostLoader = () => {
             </div>
           </a>
           <a className="item-name-1cZ font-semibold text-colorDefault" href="#" style={{ pointerEvents: 'none' }}>
-            <span> </span>
+            <span>&nbsp;</span>
           </a>
           <div className="item-price-1Qq text-colorDefault">
-            <span> </span>
-            <span> </span>
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
           </div>
           <div className="item-actionsContainer-2rd gap-x-xs grid pl-2xs">
             <button

@@ -7,6 +7,7 @@ import GET_CART_DETAILS_QUERY from '../../../utils/gql/get-cart-details.gql';
 import { getCartIdFromStorage, updateDomCartCount } from '../../../utils/helper';
 import UPDATE_CART_MUTATION from '../../../utils/gql/mutations/update-cart-items.gql';
 import REMOVE_ITEM_CART_MUTATION from '../../../utils/gql/mutations/remove-item-cart.gql';
+import CartGhost from './CartSections/CartGhost';
 
 const Component = () => {
   // update cart mutation
@@ -31,8 +32,8 @@ const Component = () => {
     }
   }, [data, fetching]);
 
-  if (fetching) return <p>Loading...</p>;
-  if (error) return <p>Oh no... {error.message}</p>;
+  if (fetching) return <CartGhost />;
+  // if (error) return <p>Oh no... {error.message}</p>;
 
   return (
     <div className="main-page-3Fo max-w-site mx-auto my-0">

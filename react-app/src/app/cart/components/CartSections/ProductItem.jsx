@@ -5,7 +5,7 @@ import { getCartIdFromStorage, updateImgDomain } from '../../../../utils/helper'
 import { CURRENCY } from '../../../../utils/config/constants';
 import QuantityStepper from '../../../../library/QuantityStepper/QuantityStepper';
 
-const ProductItem = ({ item, i, updateCartItemsCall, removeCartItemCall }) => {
+const ProductItem = ({ item, i, updateCartItemsCall = null, removeCartItemCall = null, isGhost = false }) => {
   const {
     state: { isLocal },
   } = useStoreContext();
@@ -25,14 +25,16 @@ const ProductItem = ({ item, i, updateCartItemsCall, removeCartItemCall }) => {
       quantity: qty,
       itemId: item.uid,
     };
-    updateCartItemsCall(variables).then(resp => {
-      if (resp.error) {
-        return false;
-      }
-      console.log('Update cart mutant call resp', resp);
-      setSelectedQty(qty);
-      return true;
-    });
+    if (typeof updateCartItemsCall === 'function') {
+      updateCartItemsCall(variables).then(resp => {
+        if (resp.error) {
+          return false;
+        }
+        console.log('Update cart mutant call resp', resp);
+        setSelectedQty(qty);
+        return true;
+      });
+    }
   };
 
   const removeItem = () => {
@@ -40,11 +42,13 @@ const ProductItem = ({ item, i, updateCartItemsCall, removeCartItemCall }) => {
       cartId: getCartIdFromStorage(),
       itemId: item.uid,
     };
-    removeCartItemCall(variables).then(resp => {
-      if (resp.error) {
-        return false;
-      }
-    });
+    if (typeof removeCartItemCall === 'function') {
+      removeCartItemCall(variables).then(resp => {
+        if (resp.error) {
+          return false;
+        }
+      });
+    }
   };
 
   return (
@@ -70,7 +74,9 @@ const ProductItem = ({ item, i, updateCartItemsCall, removeCartItemCall }) => {
               alt={product.name}
               className="product-image-1ZZ bg-subtle border border-solid border-subtle h-full object-contain object-center rounded-sm image-loaded-3O9 absolute left-0 top-0"
               sizes="100px"
-              src={updateImgDomain(`${product.small_image.url}?width=320&height=400`)}
+              src={
+                isGhost ? product.small_image.url : updateImgDomain(`${product.small_image.url}?width=320&height=400`)
+              }
               width={100}
               style={{ '--height': 125, '--width': 100 }}
             />
@@ -80,16 +86,18 @@ const ProductItem = ({ item, i, updateCartItemsCall, removeCartItemCall }) => {
           <div className="product-name-27e font-semibold">
             <a href="/chloe-silk-shell.html">{product.name}</a>
           </div>
-          <dl className="product-options-2TG gap-0.5 grid text-sm">
-            {opts.map(opt => (
-              <div
-                key={`opt-${opt.configurable_product_option_value_uid}`}
-                className="product-optionLabel-388 auto-cols-max grid grid-flow-col">
-                <dt>{opt.option_label} :</dt>
-                <dd className="productOptions-optionValue-3z6 ml-1">{opt.value_label}</dd>
-              </div>
-            ))}
-          </dl>
+          {opts?.length > 0 && (
+            <dl className="product-options-2TG gap-0.5 grid text-sm">
+              {opts.map(opt => (
+                <div
+                  key={`opt-${opt.configurable_product_option_value_uid}`}
+                  className="product-optionLabel-388 auto-cols-max grid grid-flow-col">
+                  <dt>{opt.option_label} :</dt>
+                  <dd className="productOptions-optionValue-3z6 ml-1">{opt.value_label}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
           <span className="product-price-lkW text-sm">
             <span>{CURRENCY[price.currency]}</span>
             <span>{price.value}</span> ea.

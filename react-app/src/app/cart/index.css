@@ -1,4 +1,7 @@
 
+.cart {
+  min-height: 100vh;
+}
 .button-root-17M {
   padding-top: calc(0.5rem + 1px); /* TODO @TW: review */
   padding-bottom: calc(0.5rem - 1px); /* TODO @TW: review */

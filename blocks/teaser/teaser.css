@@ -1,9 +1,9 @@
 .teaser > div {
-  display: flex;
+  display: block;
 }
 
 @media only screen and (min-width: 1024px) {
   .teaser > div {
-    display: block;
+    display: flex;
   }
 }

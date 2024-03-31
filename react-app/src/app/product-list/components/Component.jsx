@@ -13,7 +13,7 @@ const Component = () => {
       <div>
         <h1 aria-live="polite" className="category-title-2c9 font-normal px-2xs py-0 text-xl">
           <div className="category-categoryTitle-q7I font-light leading-snug pb-xs text-colorDefault text-center text-xl">
-            {categoryName}
+            {categoryName}&nbsp;
           </div>
         </h1>
       </div>

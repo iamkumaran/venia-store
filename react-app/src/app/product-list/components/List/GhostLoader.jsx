@@ -22,7 +22,7 @@ const GhostLoader = () => {
                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzUnPjxyZWN0IHdpZHRoPSc0JyBoZWlnaHQ9JzUnIHN0eWxlPSdmaWxsOiBub25lJyAvPjwvc3ZnPg=="
                 width={840}
               />
-              {/* <img
+              <img
                 loading={[0, 1, 2].includes(i) ? 'eager' : 'lazy'}
                 fetchPriority={[0, 1, 2].includes(i) ? 'high' : null}
                 alt={item.name}
@@ -30,7 +30,7 @@ const GhostLoader = () => {
                 sizes="(max-width: 640px) 300px, 840px"
                 src={file}
                 width={840}
-              /> */}
+              />
             </div>
           </a>
           <a className="item-name-1cZ font-semibold text-colorDefault" href="#" style={{ pointerEvents: 'none' }}>

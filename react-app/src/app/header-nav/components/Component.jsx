@@ -15,7 +15,7 @@ const Component = () => {
 
   return (
     <div
-      className="megaMenu-megaMenu-HGZ col-end-10 col-start-3 flex-grow hidden justify-self-center lg_flex"
+      className="megaMenu-megaMenu-HGZ col-end-10 col-start-3 flex-grow justify-self-center lg_flex"
       role="navigation">
       {data.categoryList[0].children.map(menu => (
         <div key={`menu-${menu.name}`} className="megaMenuItem-megaMenuItem-1TT px-3 py-0">

@@ -33,7 +33,7 @@ const Component = () => {
   }, [data, fetching]);
 
   if (fetching) return <CartGhost />;
-  // if (error) return <p>Oh no... {error.message}</p>;
+  // if (error) return <APIFail error={error} />;
 
   return (
     <div className="main-page-3Fo max-w-site mx-auto my-0">

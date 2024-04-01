@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from 'urql';
 import MEGA_MENU_QUERY from '../../../utils/gql/megamenu.gql';
 import { useStoreContext } from '../../../library/context/store/StoreContext';
+import APIFail from '../../../library/Error/APIFail';
 
 const Component = () => {
   const {
@@ -14,7 +15,7 @@ const Component = () => {
 
   const { data, fetching, error } = result;
   if (fetching) return <p>Loading...</p>;
-  if (error) return <p>Oh no... {error.message}</p>;
+  if (error) return <APIFail error={error} />;
 
   return (
     <div

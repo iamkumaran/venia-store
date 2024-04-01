@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from 'urql';
 import GET_ITEMS_CART_QUERY from '../../../../utils/gql/get-items-cart';
 import { getCartIdFromStorage, updateImgDomain } from '../../../../utils/helper';
+import APIFail from '../../../../library/Error/APIFail';
 
 const ReviewOrder = () => {
   // get price query
@@ -14,7 +15,7 @@ const ReviewOrder = () => {
 
   const { data, fetching, error } = result;
   if (fetching) return <p>Loading...</p>;
-  if (error) return <p>Oh no... {error.message}</p>;
+  if (error) return <APIFail error={error} />;
   return (
     <div className="checkoutPage-items_review_container-3fO">
       <div className="itemsReview-items_review_container-2n7 border-2 border-solid border-subtle rounded-md">

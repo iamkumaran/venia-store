@@ -3,6 +3,7 @@ import { useQuery } from 'urql';
 import GET_PRICE_SUMMARY_QUERY from '../../../../utils/gql/get-price-summary.gql';
 import { getCartIdFromStorage } from '../../../../utils/helper';
 import PriceSummary from '../../../../library/PriceSummary/PriceSummary';
+import APIFail from '../../../../library/Error/APIFail';
 
 const OrderSummary = () => {
   // get price query
@@ -15,7 +16,7 @@ const OrderSummary = () => {
 
   const { data, fetching, error } = result;
   if (fetching) return <p>Loading...</p>;
-  if (error) return <p>Oh no... {error.message}</p>;
+  if (error) return <APIFail error={error} />;
 
   return (
     <div className="checkoutPage-summaryContainer-2bL lg_h-minContent lg_sticky lg_top-[6rem] checkoutPage-signInContainerVisible-2ey checkoutPage-reCaptchaMargin-1IR">

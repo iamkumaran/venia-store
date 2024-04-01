@@ -6,6 +6,7 @@ import { setCategoryName, setProductCount } from '../../../../library/context/st
 import { useStoreContext } from '../../../../library/context/store/StoreContext';
 import GhostLoader from './GhostLoader';
 import { CURRENCY, PDP_URL } from '../../../../utils/config/constants';
+import APIFail from '../../../../library/Error/APIFail';
 
 const List = ({ filtersList }) => {
   const {
@@ -45,7 +46,7 @@ const List = ({ filtersList }) => {
   }, [data, fetching]);
 
   if (fetching) return <GhostLoader />;
-  if (error) return <p>Oh no... {error.message}</p>;
+  if (error) return <APIFail error={error} />;
 
   return (
     <div className="gallery-items-3dc gap-xs grid mb-3">

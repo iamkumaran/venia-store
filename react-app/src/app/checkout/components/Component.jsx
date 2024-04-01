@@ -43,7 +43,7 @@ const Component = () => {
   const { data: captchaData, fetching: captchaFetching, error: captchaError } = captchaResult;
 
   // if (fetching) return <p>Loading...</p>;
-  // if (error) return <p>Oh no... {error.message}</p>;
+  // if (error) return <APIFail error={error} />;
 
   const placeOrderHandler = () => {
     // place order call

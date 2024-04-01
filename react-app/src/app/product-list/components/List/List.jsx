@@ -1,19 +1,18 @@
 import React, { useEffect } from 'react';
 import { useQuery } from 'urql';
 import PRODUCTS_QUERY from '../../../../utils/gql/products.gql';
-import { addPreloadImage, getSelectedFilterPayload, updateImgDomain } from '../../../../utils/helper';
+import { addPreloadImage, getPDPURL, getSelectedFilterPayload, updateImgDomain } from '../../../../utils/helper';
 import { setCategoryName, setProductCount } from '../../../../library/context/store/actions';
 import { useStoreContext } from '../../../../library/context/store/StoreContext';
 import GhostLoader from './GhostLoader';
-import { CURRENCY, PDP_URL } from '../../../../utils/config/constants';
+import { CURRENCY } from '../../../../utils/config/constants';
 import APIFail from '../../../../library/Error/APIFail';
 
 const List = ({ filtersList }) => {
   const {
-    state: { uid, isLocal },
+    state: { uid },
     dispatch,
   } = useStoreContext();
-  const addQs = isLocal ? '/?path=' : '';
   // when filter is applied then update the query and fetch new products
   const getFilterData = getSelectedFilterPayload(filtersList);
   const [result] = useQuery({
@@ -59,10 +58,7 @@ const List = ({ filtersList }) => {
 
         return (
           <div key={item.uid} className="item-root-2AI content-start grid gap-y-2xs">
-            <a
-              aria-label={item.name}
-              className="item-images-2Jh grid"
-              href={`${addQs}/products/${item.url_key}/${item.uid.replaceAll('=', '-')}`}>
+            <a aria-label={item.name} className="item-images-2Jh grid" href={getPDPURL(item)}>
               <div className="item-imageContainer-2bp image-container-2U5 relative">
                 <img
                   loading={[0, 1, 2].includes(i) ? 'eager' : 'lazy'}
@@ -85,9 +81,7 @@ const List = ({ filtersList }) => {
                 />
               </div>
             </a>
-            <a
-              className="item-name-1cZ font-semibold text-colorDefault"
-              href={`${addQs}${PDP_URL}${item.url_key}/${item.uid.replaceAll('=', '-')}`}>
+            <a className="item-name-1cZ font-semibold text-colorDefault" href={getPDPURL(item)}>
               <span>
                 {item.name} {filtersList.length}
               </span>
@@ -97,12 +91,9 @@ const List = ({ filtersList }) => {
               <span>{item.price_range.maximum_price.final_price.value}</span>
             </div>
             <div className="item-actionsContainer-2rd gap-x-xs grid pl-2xs">
-              <button
-                onClick={() => {
-                  window.location.href = `${addQs}${PDP_URL}${item.url_key}/${item.uid.replaceAll('=', '-')}`;
-                }}
+              <a
+                href={getPDPURL(item)}
                 className="addToCartButton-root-vwC button-root_highPriority-1Zl button-root-17M border-2 border-solid cursor-pointer font-bold inline-flex items-center justify-center leading-tight max-w-full min-w-[10rem] outline-none pointer-events-auto px-sm rounded-full text-center text-sm uppercase disabled_bg-gray-400 disabled_border-gray-400 disabled_opacity-50 disabled_pointer-events-none disabled_text-white focus_shadow-inputFocus bg-brand-dark border-brand-dark text-white active_bg-brand-darkest active_border-brand-darkest active_text-white hover_bg-brand-darkest hover_border-brand-darkest hover_text-white min-w-[6.125rem] -ml-2xs px-2xs py-0 self-center sm_min-w-[8rem]"
-                type="button"
                 aria-label="Add to cart">
                 <span className="button-content-3wD gap-1.5 grid-flow-col inline-grid items-center justify-center justify-items-center">
                   <span className="icon-root-2x9 items-center inline-flex justify-center">
@@ -124,7 +115,7 @@ const List = ({ filtersList }) => {
                   </span>
                   <span className="addToCartButton-text-3eM hidden xs_inline">ADD TO CART</span>
                 </span>
-              </button>
+              </a>
               <button
                 className="addToListButton-root-3FX gap-x-2xs inline-flex items-center min-w-[3rem]"
                 type="button"

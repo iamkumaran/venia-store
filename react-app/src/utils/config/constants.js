@@ -12,4 +12,5 @@ export const CART_TOKEN_KEY = 'cartToken';
 // pages
 export const CART_URL = '/cart';
 export const CHECKOUT_URL = '/checkout';
-export const PDP_URL = '/products/';
+export const PDP_URL = '/products';
+export const PLP_URL = '/categories';

@@ -1,14 +1,10 @@
 import React from 'react';
 import { useQuery } from 'urql';
 import MEGA_MENU_QUERY from '../../../utils/gql/megamenu.gql';
-import { useStoreContext } from '../../../library/context/store/StoreContext';
 import APIFail from '../../../library/Error/APIFail';
+import { getPLPURL } from '../../../utils/helper';
 
 const Component = () => {
-  const {
-    state: { isLocal },
-  } = useStoreContext();
-  const addQs = isLocal ? '/?path=' : '';
   const [result] = useQuery({
     query: MEGA_MENU_QUERY,
   });
@@ -26,7 +22,7 @@ const Component = () => {
           <a
             aria-label={`Category: ${menu.name}. ${menu.children.length ? `${menu.children.length} sub-categories` : ''}`}
             className="megaMenuItem-megaMenuLink-2Rr items-center inline-flex"
-            href={`${addQs}/categories/${menu.url_path}/${menu.uid.replaceAll('=', '-')}`}>
+            href={getPLPURL(menu)}>
             {menu.name}
             {menu.children.length > 0 && (
               <span className="megaMenuItem-arrowDown-24M leading-[0] pl-2xs">
@@ -57,7 +53,7 @@ const Component = () => {
                     className="submenuColumn-submenuColumn-1Hl max-w-[235px] p-5">
                     <a
                       className="submenuColumn-link-16H whitespace-nowrap focus_underline hover_underline"
-                      href={`${addQs}/categories/${submenu.url_path}/${submenu.uid.replaceAll('=', '-')}`}>
+                      href={getPLPURL(submenu)}>
                       <span className="submenuColumn-heading-2is font-semibold">{submenu.name}</span>
                     </a>
                   </div>
@@ -68,11 +64,11 @@ const Component = () => {
         </div>
       ))}
 
-      <div className="megaMenuItem-megaMenuItem-1TT px-3 py-0">
+      {/* <div className="megaMenuItem-megaMenuItem-1TT px-3 py-0">
         <a className="megaMenuItem-megaMenuLink-2Rr items-center inline-flex" href="/new-products3.html">
           New Products
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };

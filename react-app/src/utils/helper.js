@@ -1,4 +1,4 @@
-import { CART_TOKEN_KEY, IMG_SOURCE } from './config/constants';
+import { CART_TOKEN_KEY, IMG_SOURCE, PDP_URL, PLP_URL } from './config/constants';
 
 /**
  * genarate unique ids to avaoid duplicate ids in one page
@@ -129,4 +129,21 @@ export const addPreloadImage = file => {
     document.head.append(elem);
   }
   // <link rel="preload" fetchpriority="high" as="image" href="/path/to/hero-image.webp" type="image/webp">
+};
+
+const isLocal = window.location.hostname.includes('localhost');
+export const getPDPURL = p => {
+  const page = PDP_URL;
+  const addQs = `${page}.html?path=`;
+  const path = `${page}/${p.url_key}/${p.uid.replaceAll('=', '-')}`;
+  return isLocal ? `${addQs}${path}` : path;
+};
+export const getPLPURL = p => {
+  const page = PLP_URL;
+  const addQs = `${page}.html?path=`;
+  const path = `${page}/${p.url_path}/${p.uid.replaceAll('=', '-')}`;
+  return isLocal ? `${addQs}${path}` : path;
+};
+export const getURL = url => {
+  return !isLocal ? url : `${url}.html`;
 };

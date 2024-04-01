@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 import MoreOptions from './MoreOptions';
-import { useStoreContext } from '../../../../library/context/store/StoreContext';
-import { getCartIdFromStorage, updateImgDomain } from '../../../../utils/helper';
+import { getCartIdFromStorage, getPDPURL, updateImgDomain } from '../../../../utils/helper';
 import { CURRENCY } from '../../../../utils/config/constants';
 import QuantityStepper from '../../../../library/QuantityStepper/QuantityStepper';
 
 const ProductItem = ({ item, i, updateCartItemsCall = null, removeCartItemCall = null, isGhost = false }) => {
-  const {
-    state: { isLocal },
-  } = useStoreContext();
-  const addQs = isLocal ? '/?path=' : '';
   const {
     product,
     configurable_options: opts,
@@ -55,9 +50,7 @@ const ProductItem = ({ item, i, updateCartItemsCall = null, removeCartItemCall =
     <li className="product-root-2YO gap-y-2xs grid">
       <span className="product-errorText-2hT leading-normal text-error" />
       <div className="product-item-3Ev gap-x-2xs gap-y-xs grid items-start">
-        <a
-          className="product-imageContainer-1FL"
-          href={`${addQs}/products/${product.url_key}/${product.uid.replaceAll('=', '-')}`}>
+        <a className="product-imageContainer-1FL" href={getPDPURL(product)}>
           <div className="product-imageRoot-3Gl h-full image-container-2U5 relative">
             <img
               loading={[0, 1, 2].includes(i) ? 'eager' : 'lazy'}
@@ -84,7 +77,7 @@ const ProductItem = ({ item, i, updateCartItemsCall = null, removeCartItemCall =
         </a>
         <div className="product-details-1wz gap-2xs leading-normal sm_grid">
           <div className="product-name-27e font-semibold">
-            <a href="/chloe-silk-shell.html">{product.name}</a>
+            <a href={getPDPURL(product)}>{product.name}</a>
           </div>
           {opts?.length > 0 && (
             <dl className="product-options-2TG gap-0.5 grid text-sm">

@@ -80,6 +80,10 @@
   --stroke: var(--venia-global-color-gray-600);
   grid-template-columns: 1fr 4rem 1fr;
 }
+.quantityStepper-root-39j input {
+  width: 64px;
+  height: 40px;
+}
 
 .quantityStepper-wrap-v0H {
 }

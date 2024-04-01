@@ -1,5 +1,6 @@
 import React from 'react';
 import { CART_URL } from '../../../utils/config/constants';
+import { getURL } from '../../../utils/helper';
 
 const MiniCart = () => {
   return (
@@ -7,12 +8,8 @@ const MiniCart = () => {
       id="mini-cart-section"
       className="header-secondaryActions-2BM col-start-3 grid grid-flow-col items-center justify-items-end justify-self-end w-max lg_col-end-13 lg_col-start-10 lg_gap-x-4">
       <div className="cartTrigger-triggerContainer-2Jd hidden items-center h-lg lg_grid">
-        <button
-          onClick={() => {
-            window.location.href = CART_URL;
-          }}
-          type="button"
-          aria-expanded="false"
+        <a
+          href={getURL(CART_URL)}
           aria-label="Toggle mini cart. You have 0 items in your cart."
           className="cartTrigger-trigger-1c5 clickable-root-1HB cursor-pointer inline-flex items-center justify-center leading-none pointer-events-auto text-center content-center flex h-[3rem] justify-center relative z-foreground">
           <span className="icon-root-2x9 items-center inline-flex justify-center">
@@ -33,7 +30,7 @@ const MiniCart = () => {
             </svg>
           </span>
           <span className="cartTrigger-counter-2ju absolute bg-brand-dark font-semibold leading-tight left-sm min-w-[1.25rem] px-1 py-0 rounded-full text-sm text-white top-1.5" />
-        </button>
+        </a>
       </div>
       {/* <button
         type="button"

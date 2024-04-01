@@ -16,12 +16,27 @@
 }
 
 @media (width < 900px) {
+  .megaMenuItem-megaMenuLink-2Rr {
+    font-weight: bold;
+  }
+  .megaMenuItem-megaMenuLink-2Rr{
+    min-height: 3rem;;
+  }
   .submenu-submenu-iLX.submenu-submenu_active-1Lj {
     display: block;
     position: static;
   }
+  .submenu-submenu-iLX.py-5{
+    padding: 0 0 0 5px;
+  }
   .submenu-submenuItems-3rB {
     display: block;
+  }
+  .submenuColumn-submenuColumn-1Hl.p-5{
+    padding: 3px;
+  }
+  .submenuColumn-submenuColumn-1Hl span {
+    font-weight: normal;
   }
 }
 

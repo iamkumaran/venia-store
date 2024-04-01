@@ -51,7 +51,6 @@ const Component = () => {
   // After getting product data.
   useEffect(() => {
     // console.log('fetching, error', fetching, error);
-    // alert('sdsds');
     if (!fetching && data?.products?.items?.[0]) {
       seShouldPause(true);
       setProductData(data.products.items[0]);

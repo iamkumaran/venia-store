@@ -1,11 +1,41 @@
+/* body header nav .nav-sections{
+  display: block;
+  visibility: visible;
+}
+
+.megaMenu-megaMenu-HGZ.hidden{
+  display: block;
+} */
+
 .megaMenuItem-megaMenuItem-1TT{
   font-size: 16px;
 }
 .submenu-submenu-iLX {
   background-color: #fff;
+  display: none;
 }
-.megaMenuItem-megaMenuItem-1TT:hover > a + .submenu-submenu-iLX {
-  display: flex;
+
+.submenu-submenu-iLX.submenu-submenu_active-1Lj {
+  display: block;
+  position: static;
+}
+.submenu-submenuItems-3rB {
+  display: block;
+}
+
+@media (width >= 900px) {
+  .submenu-submenu-iLX{
+    position: absolute;
+  }
+  .submenu-submenu-iLX.submenu-submenu_active-1Lj {
+    display: initial;
+  }
+  .megaMenuItem-megaMenuItem-1TT:hover > a + .submenu-submenu-iLX {
+    display: flex;
+  }
+  .submenu-submenuItems-3rB {
+    display: flex;
+  }
 }
 
 .submenu-submenu-iLX{

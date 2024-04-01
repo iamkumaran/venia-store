@@ -18,7 +18,7 @@ class CopyFiles {
         {
           all: true,
           up: 1,
-          exclude: ['./dist/vendor/**/*', './dist/*.html', './dist/styles/**/*'],
+          exclude: ['./dist/vendor/**/*', './dist/**/*.html', './dist/styles/**/*'],
           verbose: true,
         },
         err => err && console.error(err)

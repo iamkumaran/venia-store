@@ -10,6 +10,10 @@ const multipleHtmlPlugins = require('./htmlWebpackPlugins');
 // Plugin to copy  dist files to EDS location
 class CopyFiles {
   apply(compiler) {
+    // Copy files only in production mode when running `npm run build`
+    if (compiler.options.mode !== 'production') {
+      return null;
+    }
     compiler.hooks.done.tap('Copy', () => {
       // console.log('compilation ===>');
       // copy component files

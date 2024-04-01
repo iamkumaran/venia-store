@@ -5,15 +5,13 @@ import { StoreProvider } from '../../../library/context/store/StoreContext';
 import gqlClientSetup from '../../../utils/config/gqlSetup';
 import MiniCart from './MiniCart';
 
-export const App = () => {
-  return (
-    <Provider value={gqlClientSetup()}>
-      <StoreProvider>
-        <Component />
-        <MiniCart />
-      </StoreProvider>
-    </Provider>
-  );
-};
+const App = () => (
+  <Provider value={gqlClientSetup()}>
+    <StoreProvider>
+      <Component />
+      <MiniCart />
+    </StoreProvider>
+  </Provider>
+);
 
 export default App;

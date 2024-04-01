@@ -11,6 +11,7 @@ const GhostLoader = () => {
     <div className="gallery-items-3dc gap-xs grid mb-3">
       {ghostData.map((item, i) => (
         <div key={item.uid} className="item-root-2AI content-start grid gap-y-2xs">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a aria-label={item.name} className="item-images-2Jh grid" href="#" style={{ pointerEvents: 'none' }}>
             <div className="item-imageContainer-2bp image-container-2U5 relative">
               <img

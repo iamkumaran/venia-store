@@ -5,3 +5,7 @@ LICENSE
 package.json
 package-lock.json
 test/*
+dist/*
+react-app/*
+plop-templates/*
+static/*

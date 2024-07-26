@@ -1,1 +1,11 @@
 helix-importer-ui
+dist
+node_modules
+plop-templates
+static
+postcss.config.cjs
+.github
+fonts
+icons
+static
+scripts/vendor.js

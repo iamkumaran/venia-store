@@ -9,7 +9,7 @@ function updateActiveSlide(slide) {
 
   slides.forEach((aSlide, idx) => {
     aSlide.setAttribute('aria-hidden', idx !== slideIndex);
-    aSlide.querySelectorAll('a').forEach((link) => {
+    aSlide.querySelectorAll('a').forEach(link => {
       if (idx !== slideIndex) {
         link.setAttribute('tabindex', '-1');
       } else {
@@ -34,7 +34,7 @@ function showSlide(block, slideIndex = 0) {
   if (slideIndex >= slides.length) realSlideIndex = 0;
   const activeSlide = slides[realSlideIndex];
 
-  activeSlide.querySelectorAll('a').forEach((link) => link.removeAttribute('tabindex'));
+  activeSlide.querySelectorAll('a').forEach(link => link.removeAttribute('tabindex'));
   block.querySelector('.carousel-slides').scrollTo({
     top: 0,
     left: activeSlide.offsetLeft,
@@ -46,8 +46,8 @@ function bindEvents(block) {
   const slideIndicators = block.querySelector('.carousel-slide-indicators');
   if (!slideIndicators) return;
 
-  slideIndicators.querySelectorAll('button').forEach((button) => {
-    button.addEventListener('click', (e) => {
+  slideIndicators.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', e => {
       const slideIndicator = e.currentTarget.parentElement;
       showSlide(block, parseInt(slideIndicator.dataset.targetSlide, 10));
     });
@@ -60,12 +60,15 @@ function bindEvents(block) {
     showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
   });
 
-  const slideObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) updateActiveSlide(entry.target);
-    });
-  }, { threshold: 0.5 });
-  block.querySelectorAll('.carousel-slide').forEach((slide) => {
+  const slideObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) updateActiveSlide(entry.target);
+      });
+    },
+    { threshold: 0.5 }
+  );
+  block.querySelectorAll('.carousel-slide').forEach(slide => {
     slideObserver.observe(slide);
   });
 }

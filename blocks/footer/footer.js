@@ -6,8 +6,9 @@ import { loadFragment } from '../fragment/fragment.js';
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
+  const $block = block;
   const footerMeta = getMetadata('footer');
-  block.textContent = '';
+  $block.textContent = '';
 
   // load footer fragment
   const footerPath = footerMeta.footer || '/footer';
@@ -17,5 +18,5 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
-  block.append(footer);
+  $block.append(footer);
 }

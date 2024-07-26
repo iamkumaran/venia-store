@@ -7,5 +7,5 @@ helix-importer-ui
 .DS_Store
 *.bak
 .idea
-react-app/node_modules/*
-react-app/dist
+stats.json
+dist/

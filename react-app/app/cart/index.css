@@ -1,4 +1,3 @@
-
 .cart {
   min-height: 100vh;
 }
@@ -37,12 +36,12 @@
 
 @media (max-width: 639px) {
   .errorView-root-2Di {
-      background-image: var(--mobileBackgroundImageUrl);
-      /* two row grid because the "hangers" are on the top of the page */
-      grid-template-rows: 1fr 1fr;
-      grid-template-areas:
-          '.'
-          'content';
+    background-image: var(--mobileBackgroundImageUrl);
+    /* two row grid because the "hangers" are on the top of the page */
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      '.'
+      'content';
   }
 }
 .checkbox-root-1vJ {
@@ -58,7 +57,6 @@
   /* TODO @TW: review, replaces input:disabled. Check if working. */
 }
 
-
 /* TODO @TW: cannot compose */
 .section-root-190:last-of-type {
   /* composes: border-b-0 from global; */
@@ -70,15 +68,11 @@
   display: none;
 }
 
-
-
 .discountSummary-individualDiscountSeparator-rwM {
-
   color: rgb(var(--venia-global-color-gray-300));
 }
 
 .discountSummary-individualDiscountsListLineItem-U3T {
-
   color: rgb(var(--venia-global-color-gray-700));
 }
 
@@ -97,12 +91,10 @@
 }
 
 .section-icon-3oQ {
-
   --stroke: rgb(var(--venia-global-color-teal));
 }
 
 .section-icon_filled-1wa {
-
   --fill: rgb(var(--venia-global-color-teal));
 }
 /* The root aside element takes up the whole screen. */
@@ -111,8 +103,10 @@
 /* It sits over all background content. */
 .dialog-root-3Y- {
   transform: translate3d(-50%, 0, 0);
-  transition: opacity 192ms var(--venia-global-anim-out),
-      visibility 192ms var(--venia-global-anim-out), left 0s 192ms;
+  transition:
+    opacity 192ms var(--venia-global-anim-out),
+    visibility 192ms var(--venia-global-anim-out),
+    left 0s 192ms;
 
   /* TODO @TW: review (B6) */
   /* composes: invisible from global; */
@@ -120,14 +114,15 @@
 }
 
 .dialog-root_open-1iS {
-
   /* TODO @TW: review (B6) */
   /* composes: visible from global; */
   visibility: visible;
 
   /* It animates to being open. */
-  transition: opacity 224ms var(--venia-global-anim-in),
-      visibility 224ms var(--venia-global-anim-in), left 0s;
+  transition:
+    opacity 224ms var(--venia-global-anim-in),
+    visibility 224ms var(--venia-global-anim-in),
+    left 0s;
 }
 
 /*
@@ -139,15 +134,15 @@
 
 @media (max-width: 959px) {
   .dialog-root-3Y- {
-      /* The Dialog starts off-screen on the right. */
-      transform: translate3d(100%, 0, 0);
-      /* For mobile, add position to the transitions. */
-      transition-property: opacity, transform, visibility;
+    /* The Dialog starts off-screen on the right. */
+    transform: translate3d(100%, 0, 0);
+    /* For mobile, add position to the transitions. */
+    transition-property: opacity, transform, visibility;
   }
 
   .dialog-root_open-1iS {
-      /* The Dialog animates (slides) onto the screen. */
-      transform: translate3d(0, 0, 0);
+    /* The Dialog animates (slides) onto the screen. */
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -167,7 +162,6 @@
 }
 
 .addToListButton-root_selected-VCZ {
-
   --selectedColor: rgb(var(--venia-global-color-red-400));
   --fill: var(--selectedColor);
   --stroke: var(--selectedColor);
@@ -193,7 +187,7 @@
   height: 1px;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   white-space: nowrap;
 }
 
@@ -233,16 +227,15 @@
   grid-area: image;
 }
 
-
 @media (min-width: 640px) {
   .product-details-1wz {
-      grid-area: details;
-      grid-template-areas:
-          'name name'
-          'options quantity'
-          'price quantity'
-          'stock quantity';
-      grid-template-columns: 2fr 1fr;
+    grid-area: details;
+    grid-template-areas:
+      'name name'
+      'options quantity'
+      'price quantity'
+      'stock quantity';
+    grid-template-columns: 2fr 1fr;
   }
 }
 
@@ -261,7 +254,6 @@
 .product-kebab-3dI {
   grid-area: kebab;
 }
-
 
 .product-options-2TG {
   grid-area: options;
@@ -286,7 +278,7 @@
   .product-price-lkW,
   .product-stockStatusMessage-XOo,
   .product-quantity-2uA {
-      grid-area: auto;
+    grid-area: auto;
   }
 }
 
@@ -294,8 +286,8 @@
   grid-template-columns: 1fr 18rem;
   /* The summary grid item spans the entire right column. */
   grid-template-areas:
-      'items summary'
-      'adjustments summary';
+    'items summary'
+    'adjustments summary';
 }
 
 /* TODO @TW: cannot compose */
@@ -317,12 +309,12 @@
 
 @media (max-width: 959px) {
   .cartPage-body-3FT {
-      /* Only one column in mobile view. */
-      grid-template-columns: 100%;
-      grid-template-areas:
-          'items'
-          'adjustments'
-          'summary';
+    /* Only one column in mobile view. */
+    grid-template-columns: 100%;
+    grid-template-areas:
+      'items'
+      'adjustments'
+      'summary';
   }
 }
 
@@ -336,7 +328,6 @@
 }
 
 .password-passwordButton-2-3 {
-
   --stroke: var(--venia-global-color-gray-500);
 }
 
@@ -349,24 +340,22 @@
 }
 
 .signIn-modal-2QW {
-
   /* TODO @TW: review (B6) */
   /* composes: invisible from global; */
   visibility: hidden;
 }
 
 .signIn-modal_active-RjX {
-
   /* TODO @TW: review (B6) */
   /* composes: visible from global; */
   visibility: visible;
 }
 
 .accountMenu-root-1ou {
-  transition: opacity 192ms var(--venia-global-anim-out),
-      visibility 192ms var(--venia-global-anim-out),
-      /* Adding delay to move container off the screen after previous transitions happened */
-          left 0s 192ms;
+  transition:
+    opacity 192ms var(--venia-global-anim-out),
+    visibility 192ms var(--venia-global-anim-out),
+    /* Adding delay to move container off the screen after previous transitions happened */ left 0s 192ms;
   width: calc(100vw - 2rem); /* TODO @TW: cannot compose */
   transform: translate3d(-50%, 0, 0);
 
@@ -376,8 +365,10 @@
 }
 
 .accountMenu-root_open-3j5 {
-  transition: opacity 224ms var(--venia-global-anim-in),
-      visibility 224ms var(--venia-global-anim-in), left 0s;
+  transition:
+    opacity 224ms var(--venia-global-anim-in),
+    visibility 224ms var(--venia-global-anim-in),
+    left 0s;
 
   /* TODO @TW: review (B6) */
   /* composes: visible from global; */
@@ -393,7 +384,6 @@
 }
 
 .accountMenu-contents_open-1Mm {
-
   transform: translate3d(0, 4px, 0);
   transition-duration: 224ms;
   transition-timing-function: var(--venia-global-anim-in);
@@ -420,9 +410,9 @@
 .shippingForm-root-2hk {
   grid-template-columns: 2fr 1fr;
   grid-template-areas:
-      'country country'
-      'state zip'
-      'submit submit';
+    'country country'
+    'state zip'
+    'submit submit';
 }
 
 .shippingForm-zip-103 {
@@ -431,13 +421,13 @@
 
 @media (max-width: 639px) {
   .shippingForm-root-2hk {
-      /* Only one column in mobile view. */
-      grid-template-columns: 100%;
-      grid-template-areas:
-          'country'
-          'state'
-          'zip'
-          'submit';
+    /* Only one column in mobile view. */
+    grid-template-columns: 100%;
+    grid-template-areas:
+      'country'
+      'state'
+      'zip'
+      'submit';
   }
 }
 
@@ -463,19 +453,18 @@
 
 .giftCards-card-1qL {
   grid-template-areas:
-      'card_entry'
-      'check_balance_button'
-      'apply_button';
+    'card_entry'
+    'check_balance_button'
+    'apply_button';
 }
 
 @media (min-width: 960px) {
   .giftCards-card-1qL {
-      grid-template-areas:
-          'card_entry apply_button'
-          'check_balance_button check_balance_button';
+    grid-template-areas:
+      'card_entry apply_button'
+      'check_balance_button check_balance_button';
   }
 }
-
 
 .giftCards-invalid_card_error-1_i {
   color: red;
@@ -518,9 +507,9 @@
 @media (max-width: 959px) {
   .couponCode-entryForm-1ub,
   .couponCode-entryFormError-1rp {
-      /* switch to rows. */
-      grid-template-columns: unset;
-      grid-template-rows: 1fr 1fr;
+    /* switch to rows. */
+    grid-template-columns: unset;
+    grid-template-rows: 1fr 1fr;
   }
 }
 
@@ -558,7 +547,6 @@
 }
 
 .giftOptions-giftMessageResultContainer-3Nf {
-
   /* Small */
 }
 
@@ -566,11 +554,9 @@
   padding: 0.25rem 0;
 }
 
-
 .tile-root-1f- {
   position: relative;
 }
-
 
 .tile-root_outOfStock-Eho:after,
 .tile-root_selected_outOfStock-3Eg:after {
@@ -588,9 +574,7 @@
 
 /* TODO @TW: review. This relies on custom prop to set color from JSX "style" prop. */
 .swatch-root_selected-CCW {
-
-  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.2), transparent),
-      var(--venia-swatch-bg);
+  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.2), transparent), var(--venia-swatch-bg);
 }
 
 .swatch-checked-vir {
@@ -615,7 +599,6 @@
   grid-template-columns: repeat(auto-fit, minmax(3rem, -webkit-max-content));
   grid-template-columns: repeat(auto-fit, minmax(3rem, max-content));
 }
-
 
 .productForm-quantityRoot-1Rm {
   grid-template-columns: auto 4rem auto;

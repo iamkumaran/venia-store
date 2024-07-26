@@ -4,13 +4,9 @@
  * https://www.aem.live/developer/block-collection/fragment
  */
 
-import {
-  decorateMain,
-} from '../../scripts/scripts.js';
+import { decorateMain } from '../../scripts/scripts.js';
 
-import {
-  loadBlocks,
-} from '../../scripts/aem.js';
+import { loadBlocks } from '../../scripts/aem.js';
 
 /**
  * Loads a fragment.
@@ -26,8 +22,9 @@ export async function loadFragment(path) {
 
       // reset base path for media to fragment base
       const resetAttributeBase = (tag, attr) => {
-        main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((elem) => {
-          elem[attr] = new URL(elem.getAttribute(attr), new URL(path, window.location)).href;
+        main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach(elem => {
+          const $elem = elem;
+          $elem[attr] = new URL(elem.getAttribute(attr), new URL(path, window.location)).href;
         });
       };
       resetAttributeBase('img', 'src');

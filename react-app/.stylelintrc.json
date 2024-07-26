@@ -1,8 +1,0 @@
-{
-  "extends": ["stylelint-config-standard"],
-  "rules": {
-    "color-named": "never",
-    "color-no-hex": true,
-    "function-disallowed-list": ["rgb", "hwb", "lch"]
-  }
-}

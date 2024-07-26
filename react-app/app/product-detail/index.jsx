@@ -3,8 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './components/App';
 import './index.css';
 
-const elem = document.querySelector('.product-detail');
-if (elem) {
-  const root = createRoot(elem);
+export default function decorate(block) {
+  const root = createRoot(block);
   root.render(<App />);
 }

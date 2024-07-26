@@ -4,16 +4,19 @@
     "es6": true
   },
   "extends": [
+    "airbnb-base",
     "plugin:react/recommended",
     "airbnb",
     "plugin:prettier/recommended",
     "plugin:import/recommended"
   ],
   "parserOptions": {
+    "allowImportExportEverywhere": true,
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": 2020,
+    "requireConfigFile": false,
     "sourceType": "module"
   },
   "plugins": [
@@ -22,11 +25,12 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "webpack.config.js"
+        "config": "webpack.config.cjs"
       }
     }
   },
   "rules": {
+    "import/extensions": "off",
     "no-plusplus": "off",
     "curly": 1,
     "consistent-return": 0,
